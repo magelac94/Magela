@@ -9,6 +9,6 @@ package proyectov1;
  *
  * @author Magela
  */
-public class BaseDeDatos {
+public interface IActor {
     
 }

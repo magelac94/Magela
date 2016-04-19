@@ -9,15 +9,15 @@ package proyectov1;
  *
  * @author Magela
  */
-public class Pelicula {
+public class Pelicula implements IPelicula {
 
-    public String id;
+    public Comparable id;
     public String fecha;
     public String nombre;
     public String descripcion;
-    public String ranking;
+    public Integer ranking;
 
-    public Pelicula(String id, String fecha, String nombre, String descripcion, String ranking) {
+    public Pelicula(String id, String fecha, String nombre, String descripcion, Integer ranking) {
         this.id = id;
         this.fecha = fecha;
         this.nombre = nombre;
@@ -26,12 +26,50 @@ public class Pelicula {
     }
 
     // para peliculas nuevas el id se autogenera
-    public Pelicula(String fecha, String nombre, String descripcion, String ranking) {
+    public Pelicula(String fecha, String nombre, String descripcion, Integer ranking) {
         this.id = "0"; // autogenerar
         this.fecha = fecha;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.ranking = ranking;
     }
+    
+    
+    @Override
+    public Comparable getId() {
+        return this.id;
+    }
+
+    @Override
+    public String getFecha() {
+        return this.fecha;
+    }
+
+    @Override
+    public void setRanking(Integer ranking) {
+        this.ranking=ranking;
+    }
+
+    @Override
+    public String getDescripcion() {
+        return this.descripcion;
+        
+    }
+
+    @Override
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    @Override
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    @Override
+    public void setNombre(String nombre) {
+        this.nombre=nombre;
+    }
+    
 
 }

@@ -11,9 +11,9 @@ package proyectov1;
  */
 public class ManejadorDePeliculas implements IManejadorDePeliculas {
 
-  /*  public void AgregarPeliculaBD(String dato1, String dato2, String dato3, String dato4, String dato5) {
+    /*   public void AgregarPeliculaBD(String dato1, String dato2, String dato3, String dato4, String dato5) {
         Pelicula peliculanueva = new Pelicula(dato1,dato2,dato3,dato4,dato5);
-     //   AgregarEnBD(peliculanueva);
+        AgregarEnBD(peliculanueva); 
         
     }
     public void BuscarPelicula(Pelicula pelicula){
@@ -21,11 +21,13 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
     }
     
     // buscar pelicula o  actor.
-      */   
-    
+     */
+    private Lista listaPeliculas = new Lista();
+
     @Override
-    public void insertarPelicula(Pelicula unaPelicula){
-        
+    public void insertarPelicula(Pelicula unaPelicula) {
+        Nodo<Pelicula> nuevoNodo = new Nodo<>(unaPelicula, unaPelicula.id);
+        this.listaPeliculas.insertar(nuevoNodo);
     }
 
     /**
@@ -35,8 +37,8 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
      * @return
      */
     @Override
-    public boolean eliminarPelicula(Comparable id){
-        return true;
+    public boolean eliminarPelicula(Comparable id) {
+        return this.listaPeliculas.eliminar(id);
     }
 
     /**
@@ -45,8 +47,9 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
      * @return
      */
     @Override
-    public String listarPeliculas(){
-        return " ";
+    public String listarPeliculas() {
+        this.listaPeliculas.imprimir();
+        return "";
     }
 
     /**
@@ -57,8 +60,9 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
      * @return
      */
     @Override
-    public String listarSeparador(String separador){
-        return " ";
+    public String listarSeparador(String separador) {
+        System.out.println(this.listaPeliculas.imprimir(separador));
+        return "";
     }
 
     /**
@@ -68,36 +72,42 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
      * @param cantidad
      * @return
      */
-  
     /**
      * Listar todos los productos registrados, ordenados por nombre, presentando
      * adem�s su stock. Imprime por consola la lista de todos los productos
      * registrados y su stock actual.
      */
     @Override
-    public void listarOrdenadoPorNombre(){
-        
+    public void listarOrdenadoPorNombre() {
+
     }
-    
+
     @Override
-    public void listarOrdenadoPorDescripcion(){
-        
+    public void listarOrdenadoPorDescripcion() {
+
     }
+
     @Override
-    public void listarOrdenadoPorRanking(){
-        
+    public void listarOrdenadoPorRanking() {
+
     }
+
     @Override
-    public void listarOrdenadoPorFecha(){
-        
-        
+    public void listarOrdenadoPorFecha() {
+
     }
+
     @Override
-     public IPelicula buscarPorCodigo(Comparable codigo){
-         
-     }
-     
-     
+    public IPelicula buscarPorCodigo(Comparable codigo) {
+
+        INodo<Pelicula> nodoConPelicula = this.listaPeliculas.buscar(codigo);
+        if (nodoConPelicula == null) { //verifica que no sea null
+            return null;
+        }
+        IPelicula producto = nodoConPelicula.getDato();
+        return producto;
+    }
+
     /**
      * Busca un producto por su descripci�n.
      *
@@ -105,23 +115,29 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
      * @return
      */
     @Override
-    public Pelicula buscarPorDescripcion(String descripcion){
-        
+    public Pelicula buscarPorDescripcion(String descripcion) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
+
     @Override
-    public Pelicula[] buscarPorRanking(String ranking){
-        
+    public Pelicula[] buscarPorRanking(String ranking) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
+
     @Override
-    public Pelicula[] buscarPorFecha(String fecha){
-        
+    public Pelicula[] buscarPorFecha(String fecha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
+
     @Override
-    public Pelicula[] buscarPorNombre(String nombre){
-        
+    public Pelicula[] buscarPorNombre(String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
-    
-    
+
     /**
      * Retorna el tama�o del almacen: cantidad de productos. No es lo mismo que
      * el total de stock, sino que ser�a en definitiva el tama�o de la lista.
@@ -129,7 +145,7 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
      * @return
      */
     @Override
-    public int cantidadPeliculas(){
-        
+    public int cantidadPeliculas() {
+        return this.listaPeliculas.cantElementos();
     }
 }

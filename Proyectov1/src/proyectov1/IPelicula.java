@@ -18,7 +18,7 @@ public interface IPelicula{
      */
     public String getFecha();
 
-    public void setRanking(Integer ranking);
+    public void setRanking(String ranking);
 
     /**
      * Retorna el stock del Producto.

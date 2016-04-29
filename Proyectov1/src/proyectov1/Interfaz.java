@@ -16,12 +16,12 @@ import javax.swing.plaf.basic.BasicListUI;
  * @author Josse
  */
 public class Interfaz extends javax.swing.JFrame {
-    IAEDMovieAdapter aedMovieAdapter;
+    IAdaptador aedMovieAdapter;
     /**
      * Creates new form AEDIMovieFrame
      */
     public Interfaz() {
-        aedMovieAdapter = new AEDMovieAdapterDummy();
+        aedMovieAdapter = new Adaptador();
         initComponents();
     }
 

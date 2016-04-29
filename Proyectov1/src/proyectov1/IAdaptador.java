@@ -11,7 +11,7 @@ import proyectov1.*;
  *
  * @author Josse
  */
-public interface IAEDMovieAdapter {
+public interface IAdaptador {
     void cargarDatos();
     
     Pelicula [] obtenerPeliculas();

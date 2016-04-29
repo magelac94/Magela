@@ -9,7 +9,7 @@ package proyectov1;
  *
  * @author Josse
  */
-public class AEDMovieAdapterDummy implements IAEDMovieAdapter{
+public class Adaptador implements IAdaptador{
     
     //Arrays sin tamano
     private Pelicula [] peliculas;

@@ -12,12 +12,13 @@ package proyectov1;
 public class Pelicula implements IPelicula {
 
     public Comparable id;
-    public String fecha;
     public String nombre;
+    public String fecha;
+    public String ranking;
     public String descripcion;
-    public Integer ranking;
+    
 
-    public Pelicula(String id, String fecha, String nombre, String descripcion, Integer ranking) {
+    public Pelicula(Comparable id, String nombre, String fecha, String ranking, String descripcion) {
         this.id = id;
         this.fecha = fecha;
         this.nombre = nombre;
@@ -25,6 +26,7 @@ public class Pelicula implements IPelicula {
         this.ranking = ranking;
     }
 
+    /*
     // para peliculas nuevas el id se autogenera
     public Pelicula(String fecha, String nombre, String descripcion, Integer ranking) {
         this.id = "0"; // autogenerar
@@ -33,7 +35,7 @@ public class Pelicula implements IPelicula {
         this.descripcion = descripcion;
         this.ranking = ranking;
     }
-    
+    */
     
     @Override
     public Comparable getId() {
@@ -46,7 +48,7 @@ public class Pelicula implements IPelicula {
     }
 
     @Override
-    public void setRanking(Integer ranking) {
+    public void setRanking(String ranking) {
         this.ranking=ranking;
     }
 

@@ -110,7 +110,7 @@ public class Interfaz extends javax.swing.JFrame {
       */  
         Pelicula selected = aedMovieAdapter.getPelicula(jListPeliculas.getSelectedValue().toString());
         if (selected!=null){
-            jTextArea1.setText(selected.toString());
+            jTextArea1.setText(selected.toText());
             //.toText()
         } 
         

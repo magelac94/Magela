@@ -26,6 +26,12 @@ public class Pelicula implements IPelicula {
         this.ranking = ranking;
     }
 
+    public String toText(){
+        String texto = "Nombre: "+this.nombre+"\nID Pelicula: "+String.valueOf(this.id)+"\nActores:";
+        return texto;
+    
+    }
+    
     /*
     // para peliculas nuevas el id se autogenera
     public Pelicula(String fecha, String nombre, String descripcion, Integer ranking) {

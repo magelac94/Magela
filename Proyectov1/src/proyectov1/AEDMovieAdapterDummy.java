@@ -54,10 +54,12 @@ public class AEDMovieAdapterDummy implements IAEDMovieAdapter{
         for(int i = 0; i < archivoPelicula.length;i++ )
         {
             String [] columnas = archivoPelicula[i].split("|");
-            
+            System.out.println("Columna: " + archivoPelicula[i]);
+                        System.out.println("Pelicula Agregada1: " + " ID:" +columnas[0] + " Nombre:" +columnas[1]+ " Año:" + columnas[2]+ " Ranking:" +columnas[3]+ " Descripcion:" +columnas[4] );
+
             Pelicula objPelicula = new Pelicula(Integer.parseInt(columnas[0]),columnas[1],columnas[2],columnas[3],columnas[4]);
-            
-            //punto donde explota 
+            System.out.println("Pelicula Agregada2: " + " ID:" +columnas[0] + " Nombre:" +columnas[1]+ " Año:" + columnas[2]+ " Ranking:" +columnas[3]+ " Descripcion:" +columnas[4] );
+            //punto donde explota o
             
             peliculas[i]=objPelicula;
             
@@ -93,7 +95,7 @@ public class AEDMovieAdapterDummy implements IAEDMovieAdapter{
         
         String [] archivoRelacion;
                 
-        archivoRelacion = leoArchivo.leerArchivo("src/proyectov1/Archivos/Small-PeliculasActores.csv",false);
+        archivoRelacion = leoArchivo.leerArchivo("src/proyectov1/Archivos/Small-PeliculasActores.txt",false);
         actoresPeliculas = new ActorPelicula[archivoRelacion.length];
         
         for(int i = 0; i < archivoRelacion.length;i++ )

@@ -47,6 +47,7 @@ public class ManejadorArchivosGenerico {
             while (lineaActual != null) {
                 listaLineasArchivo.add(lineaActual);
                 lineaActual = br.readLine();
+                System.out.println("Linea Actual: " + lineaActual);
             }
             br.close();
             fr.close();

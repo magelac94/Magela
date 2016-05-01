@@ -55,7 +55,7 @@ public class AEDMovieAdapterDummy implements IAEDMovieAdapter{
         {
             String [] columnas = archivoPelicula[i].split("|");
             
-            Pelicula objPelicula = new Pelicula(columnas[0],columnas[1],columnas[2],columnas[3],Integer.parseInt(columnas[4]));
+            Pelicula objPelicula = new Pelicula(Integer.parseInt(columnas[0]),columnas[1],columnas[2],columnas[3],columnas[4]);
             
             //punto donde explota 
             

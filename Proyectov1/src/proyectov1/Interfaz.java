@@ -92,18 +92,28 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         aedMovieAdapter.cargarDatos();
-
         DefaultListModel model = new DefaultListModel();
         jListPeliculas.setModel(model);
-        model.addElement("UNA PELICULA");
+        Pelicula[] lista = aedMovieAdapter.getPeliculas();
+        for(int i=0;i<lista.length;i++)
+        {
+         model.addElement(lista[i].getNombre());
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jListPeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListPeliculasMouseClicked
-        String selected = (String)jListPeliculas.getSelectedValue();
+     /*   String selected = (String)jListPeliculas.getSelectedValue();
         if (selected!=null){
             jTextArea1.setText(selected);
-        }  
+        }
+      */  
+        Pelicula selected = aedMovieAdapter.getPelicula(jListPeliculas.getSelectedValue().toString());
+        if (selected!=null){
+            jTextArea1.setText(selected.toString());
+            //.toText()
+        } 
+        
     }//GEN-LAST:event_jListPeliculasMouseClicked
 
     

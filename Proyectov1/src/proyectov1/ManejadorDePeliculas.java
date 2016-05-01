@@ -24,6 +24,10 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
      */
     private Lista listaPeliculas = new Lista();
 
+    public Lista<Pelicula> getLista() {
+        return listaPeliculas;
+    }
+
     @Override
     public void insertarPelicula(Pelicula unaPelicula) {
         Nodo<Pelicula> nuevoNodo = new Nodo<>(unaPelicula, unaPelicula.id);
@@ -116,26 +120,48 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
      */
     @Override
     public Pelicula buscarPorDescripcion(String descripcion) {
+        INodo<Pelicula> aux = listaPeliculas.getPrimero();
+
+        while (aux != null) {
+            if (aux.getDato().getDescripcion().equals(descripcion)) {
+                return aux.getDato();
+            }
+            aux = aux.getSiguiente();
+        }
+        return null;
+    }
+
+    @Override
+    public Pelicula buscarPorRanking(String ranking) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
     }
 
     @Override
-    public Pelicula[] buscarPorRanking(String ranking) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Pelicula buscarPorFecha(String fecha) {
+        INodo<Pelicula> aux = listaPeliculas.getPrimero();
 
+        while (aux != null) {
+            if (aux.getDato().getFecha().equals(fecha)) {
+                return aux.getDato();
+            }
+            aux = aux.getSiguiente();
+        }
+        return null;
     }
 
     @Override
-    public Pelicula[] buscarPorFecha(String fecha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Pelicula buscarPorNombre(String nombre) {
 
-    }
+        INodo<Pelicula> aux = listaPeliculas.getPrimero();
 
-    @Override
-    public Pelicula[] buscarPorNombre(String nombre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-
+        while (aux != null) {
+            if (aux.getDato().getNombre().equals(nombre)) {
+                return aux.getDato();
+            }
+            aux = aux.getSiguiente();
+        }
+        return null;
     }
 
     /**

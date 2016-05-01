@@ -14,13 +14,13 @@ import proyectov1.*;
 public interface IAEDMovieAdapter {
     void cargarDatos();
     
-    Pelicula [] obtenerPeliculas();
+    Lista<Pelicula> obtenerPeliculas();
     
-    Actor [] obtenerActores();
+    Lista<Actor> obtenerActores();
     
-    ActorPelicula [] obtenerPeliculasActores();
+    Lista<ActorPelicula> obtenerPeliculasActores();
     
-    Pelicula[] getPeliculas();
+    Lista<Pelicula> getPeliculas();
     
     Pelicula getPelicula(String nombre);
         

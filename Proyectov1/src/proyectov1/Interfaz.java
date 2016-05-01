@@ -91,15 +91,15 @@ public class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        aedMovieAdapter.cargarDatos();
+        aedMovieAdapter.cargarDatos();        
         DefaultListModel model = new DefaultListModel();
         jListPeliculas.setModel(model);
-        Pelicula[] lista = aedMovieAdapter.getPeliculas();
-        for(int i=0;i<lista.length;i++)
-        {
-         model.addElement(lista[i].getNombre());
+        Lista<Pelicula> lista = aedMovieAdapter.getPeliculas();
+        INodo<Pelicula> aux = lista.getPrimero();   
+        while(aux != null){     
+            model.addElement(aux.getDato().getNombre()); // Muestro el nombre en la grilla
+            aux = aux.getSiguiente();
         }
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jListPeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListPeliculasMouseClicked

@@ -59,9 +59,9 @@ public interface IManejadorDePeliculas {
      * @return
      */
     public Pelicula buscarPorDescripcion(String descripcion);
-    public Pelicula[] buscarPorRanking(String ranking);
-    public Pelicula[] buscarPorFecha(String fecha);
-    public Pelicula[] buscarPorNombre(String nombre);
+    public Pelicula buscarPorRanking(String ranking);
+    public Pelicula buscarPorFecha(String fecha);
+    public Pelicula buscarPorNombre(String nombre);
     
     
     /**

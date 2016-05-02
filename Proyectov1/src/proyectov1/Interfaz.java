@@ -17,7 +17,9 @@ import javax.swing.plaf.basic.BasicListUI;
  * @author Josse
  */
 public class Interfaz extends javax.swing.JFrame {
+
     IAEDMovieAdapter aedMovieAdapter;
+
     /**
      * Creates new form AEDIMovieFrame
      */
@@ -222,37 +224,37 @@ public class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonDeCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeCargarActionPerformed
-        aedMovieAdapter.cargarDatos();        
+        aedMovieAdapter.cargarDatos();
         DefaultListModel model = new DefaultListModel();
         jListPeliculas.setModel(model);
         Lista<Pelicula> lista = aedMovieAdapter.getPeliculas(); // todas las peliculas
-        
-        CargarPanelIzquiero(model,lista);
+
+        CargarPanelIzquiero(model, lista);
     }//GEN-LAST:event_jButtonDeCargarActionPerformed
 
-    private void CargarPanelIzquiero(DefaultListModel panel,Lista lista){
-        panel.clear();
-     //   jTextAreaDerecha.removeAll();
+    private void CargarPanelIzquiero(DefaultListModel panel, Lista lista) {
+      //  panel.clear();
+        //   jTextAreaDerecha.removeAll();
         INodo<Pelicula> aux = lista.getPrimero();
-        while(aux != null){
+        while (aux != null) {
             panel.addElement(aux.getDato().getNombre());
             aux = aux.getSiguiente();
-        } 
+        }
     }
-    public void CargarPanelIzquiero(DefaultListModel panel, Pelicula peli){
-        panel.clear();
+
+    public void CargarPanelIzquiero(DefaultListModel panel, Pelicula peli) {
+       // panel.clear();
         panel.addElement(peli.getNombre());
     }
-    
+
     private void jListPeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListPeliculasMouseClicked
         Pelicula selected = aedMovieAdapter.getPelicula(jListPeliculas.getSelectedValue().toString());
         CargarPanelDerecho(selected);
-        
+
     }//GEN-LAST:event_jListPeliculasMouseClicked
 
-   // private void CargarPanelDerecho(DefaultListModel panel,Lista lista){
-        
-   // }
+    // private void CargarPanelDerecho(DefaultListModel panel,Lista lista){
+    // }
 
     private void jTextBuscarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextBuscarNombreActionPerformed
         // TODO add your handling code here:
@@ -267,40 +269,51 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBuscarRankingActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
+   //     jTextAreaDerecha.removeAll();
         String nombreBuscar = jTextBuscarNombre.getText();
         String fechaBuscar = jTextBuscarFecha.getText();
-    //    String rankingBuscar = jComboBuscarRanking.getToolTipText(event);
+        //    String rankingBuscar = jComboBuscarRanking.getToolTipText(event);
         String descripcionBuscar = jTextBuscarDescripcion.getText();
-        
+
         DefaultListModel model = new DefaultListModel();
         jListPeliculas.setModel(model);
         System.out.println("LLEGA");
-        try{
-                   Pelicula buscar =  aedMovieAdapter.buscarPorNombre(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;
-                   System.out.println("Pelicula entontrada: "+buscar.getNombre() );
-                   CargarPanelIzquiero(model,buscar);
+      /*  try {
+            Pelicula buscar = aedMovieAdapter.buscarPorNombre(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;
+            System.out.println("Pelicula entontrada: " + buscar.getNombre());
+            if (buscar != null){
+                CargarPanelIzquiero(model, buscar);
+                //jTextAreaDerecha.removeAll();
+            }
 
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println("Pelicula No existe en el sistema o hay otro problema");
             JOptionPane.showMessageDialog(null, "Pelicula No existe en el sistema o hay otro problema");
 
-        }
-        
-        
-       
-       
-       
-       
-    
-        
+        } */
+      
+     // try {
+            Lista<Pelicula> buscar = aedMovieAdapter.buscarPorNombreLista(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;
+            if (buscar != null){
+                CargarPanelIzquiero(model, buscar);
+                //jTextAreaDerecha.removeAll();
+            }
+
+     //   } catch (Exception ex) {
+            System.out.println("Pelicula No existe en el sistema o hay otro problema 2 ");
+            JOptionPane.showMessageDialog(null, "Pelicula No existe en el sistema o hay otro problema");
+
+      //  }
+
+
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
-    private void CargarPanelDerecho(Pelicula p){
-        if (p!=null){
+    private void CargarPanelDerecho(Pelicula p) {
+        if (p != null) {
             jTextAreaDerecha.setText(p.toText());
         }
     }
-    
+
     /**
      * @param args the command line arguments
      */

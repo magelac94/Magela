@@ -5,6 +5,9 @@
  */
 package proyectov1;
 
+
+
+
 /**
  *
  * @author Magela
@@ -112,6 +115,8 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
         IPelicula producto = nodoConPelicula.getDato();
         return producto;
     }
+    
+    
 
     /**
      * Busca un producto por su descripci�n.
@@ -164,6 +169,23 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
         }
         return null;
     }
+    
+    @Override
+    public Lista <Pelicula> buscarPorNombreLista(String nombre){
+        IManejadorDePeliculas buscopeli = new ManejadorDePeliculas(); // creo una listita para las peliculas encontradas
+        
+        INodo<Pelicula> aux = listaPeliculas.getPrimero();
+
+        while (aux != null) {
+            if (Auxiliares.contieneA(nombre, aux.getDato().getNombre())) {
+                buscopeli.insertarPelicula(aux.getDato());
+            }
+            aux = aux.getSiguiente();
+        }
+        return buscopeli.getLista();
+    }
+    
+    
 
     /**
      * Retorna el tama�o del almacen: cantidad de productos. No es lo mismo que

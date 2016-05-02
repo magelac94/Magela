@@ -34,5 +34,8 @@ public interface IAEDMovieAdapter {
     Lista<ActorPelicula> getActorPelicula();
     
     Pelicula buscarPorNombre(String nombre);
+    
+    Lista<Pelicula> buscarPorNombreLista(String nombre);
+
         
 }

@@ -66,6 +66,8 @@ public interface IManejadorDePeliculas {
     public Pelicula buscarPorFecha(String fecha);
     public Pelicula buscarPorNombre(String nombre);
     
+    public Lista <Pelicula> buscarPorNombreLista(String nombre);
+    
     
     /**
      * Retorna el tama�o del almacen: cantidad de productos. No es lo mismo que

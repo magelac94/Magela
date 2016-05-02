@@ -2,6 +2,9 @@ package proyectov1;
 
 public interface IManejadorDePeliculas {
 
+    
+    public Lista<Pelicula> getLista();
+    
     /**
      * Incorporar un nueva pelicula
      *

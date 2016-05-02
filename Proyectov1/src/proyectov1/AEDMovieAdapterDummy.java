@@ -12,12 +12,16 @@ package proyectov1;
 public class AEDMovieAdapterDummy implements IAEDMovieAdapter {
 
     //Arrays sin tamano
-    private ManejadorDePeliculas manejadorPeliculas;
+    private IManejadorDePeliculas manejadorPeliculas;
+    
     private Actor[] actores;
 
     private ActorPelicula[] actoresPeliculas;
     ManejadorArchivosGenerico leoArchivo = new ManejadorArchivosGenerico();
 
+    public AEDMovieAdapterDummy(){
+        manejadorPeliculas = new ManejadorDePeliculas();
+    }
     @Override
 
     public void cargarDatos() {
@@ -32,19 +36,30 @@ public class AEDMovieAdapterDummy implements IAEDMovieAdapter {
     public Lista<Pelicula> getPeliculas() {
         return manejadorPeliculas.getLista();
     }
+    
+    @Override
+    public IManejadorDePeliculas getManejador(){
+        return manejadorPeliculas;
+    }
 
+    @Override
     public Lista<Actor> getActores() {
         return null;
         // return actores;
 
     }
 
+    @Override
     public Lista<ActorPelicula> getActorPelicula() {
         return null;
         //  return actoresPeliculas;
 
     }
-
+    @Override
+    public Pelicula buscarPorNombre(String nombre) {
+        return manejadorPeliculas.buscarPorNombre(nombre);
+    }
+    
     @Override
     public Lista<Pelicula> obtenerPeliculas() {
 

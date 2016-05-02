@@ -24,6 +24,7 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
      */
     private Lista listaPeliculas = new Lista();
 
+    @Override
     public Lista<Pelicula> getLista() {
         return listaPeliculas;
     }

@@ -7,6 +7,7 @@ package proyectov1;
 
 import proyectov1.*;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 import javax.swing.event.ListDataListener;
 import javax.swing.plaf.basic.BasicListUI;
@@ -38,7 +39,7 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jListPeliculas = new javax.swing.JList();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaDerecha = new javax.swing.JTextArea();
         jButtonDeCargar = new javax.swing.JButton();
         jTextBuscarNombre = new javax.swing.JTextField();
         jTextBuscarDescripcion = new javax.swing.JTextField();
@@ -64,9 +65,9 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jListPeliculas);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        jTextAreaDerecha.setColumns(20);
+        jTextAreaDerecha.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaDerecha);
 
         jButtonDeCargar.setText("Cargar");
         jButtonDeCargar.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +105,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel5.setText("Descripcion");
 
-        jComboBuscarRanking.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10 estrellas", "9  estrellas", "8  estrellas", "7  estrellas", "6  estrellas", "5  estrellas", "4  estrellas", "3  estrellas", "2  estrellas", "1  estrella" }));
+        jComboBuscarRanking.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos ","10 estrellas", "9  estrellas", "8  estrellas", "7  estrellas", "6  estrellas", "5  estrellas", "4  estrellas", "3  estrellas", "2  estrellas", "1  estrella" }));
         jComboBuscarRanking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBuscarRankingActionPerformed(evt);
@@ -224,25 +225,28 @@ public class Interfaz extends javax.swing.JFrame {
         aedMovieAdapter.cargarDatos();        
         DefaultListModel model = new DefaultListModel();
         jListPeliculas.setModel(model);
-        Lista<Pelicula> lista = aedMovieAdapter.getPeliculas();
+        Lista<Pelicula> lista = aedMovieAdapter.getPeliculas(); // todas las peliculas
         
         CargarPanelIzquiero(model,lista);
     }//GEN-LAST:event_jButtonDeCargarActionPerformed
 
     private void CargarPanelIzquiero(DefaultListModel panel,Lista lista){
+        panel.clear();
+     //   jTextAreaDerecha.removeAll();
         INodo<Pelicula> aux = lista.getPrimero();
         while(aux != null){
             panel.addElement(aux.getDato().getNombre());
             aux = aux.getSiguiente();
-        }
-        
+        } 
     }
+    public void CargarPanelIzquiero(DefaultListModel panel, Pelicula peli){
+        panel.clear();
+        panel.addElement(peli.getNombre());
+    }
+    
     private void jListPeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListPeliculasMouseClicked
         Pelicula selected = aedMovieAdapter.getPelicula(jListPeliculas.getSelectedValue().toString());
-        if (selected!=null){
-            jTextArea1.setText(selected.toText());
-            //.toText()
-        } 
+        CargarPanelDerecho(selected);
         
     }//GEN-LAST:event_jListPeliculasMouseClicked
 
@@ -263,9 +267,39 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBuscarRankingActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        // TODO add your handling code here:
+        String nombreBuscar = jTextBuscarNombre.getText();
+        String fechaBuscar = jTextBuscarFecha.getText();
+    //    String rankingBuscar = jComboBuscarRanking.getToolTipText(event);
+        String descripcionBuscar = jTextBuscarDescripcion.getText();
+        
+        DefaultListModel model = new DefaultListModel();
+        jListPeliculas.setModel(model);
+        System.out.println("LLEGA");
+        try{
+                   Pelicula buscar =  aedMovieAdapter.buscarPorNombre(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;
+                   System.out.println("Pelicula entontrada: "+buscar.getNombre() );
+                   CargarPanelIzquiero(model,buscar);
+
+        }catch(Exception ex){
+            System.out.println("Pelicula No existe en el sistema o hay otro problema");
+            JOptionPane.showMessageDialog(null, "Pelicula No existe en el sistema o hay otro problema");
+
+        }
+        
+        
+       
+       
+       
+       
+    
+        
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
+    private void CargarPanelDerecho(Pelicula p){
+        if (p!=null){
+            jTextAreaDerecha.setText(p.toText());
+        }
+    }
     
     /**
      * @param args the command line arguments
@@ -321,7 +355,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextAreaDerecha;
     private javax.swing.JTextField jTextBuscarDescripcion;
     private javax.swing.JTextField jTextBuscarFecha;
     private javax.swing.JTextField jTextBuscarNombre;

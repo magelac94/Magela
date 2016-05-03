@@ -9,7 +9,7 @@ package proyectov1;
  *
  * @author DC-C04
  */
-public final class Auxiliares {
+public class Auxiliares {
 
     // Le paso un string para buscar en otro String
     public static boolean contieneA(String palabraABuscar, String stringDondeBusco) {

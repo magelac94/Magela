@@ -68,6 +68,11 @@ public class AEDMovieAdapterDummy implements IAEDMovieAdapter {
     public Lista<Pelicula>buscarPorFechaLista(String nombre, Lista<Pelicula> lista){
         return manejadorPeliculas.buscarPorFechaLista(nombre,lista);
     }
+    
+    @Override
+    public Lista<Pelicula>buscarPorRankingLista(String ranking, Lista<Pelicula> lista){
+        return manejadorPeliculas.buscarPorRankingLista(ranking, lista);
+    }
     @Override
     public Lista<Pelicula> obtenerPeliculas() {
 

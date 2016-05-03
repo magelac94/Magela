@@ -73,6 +73,12 @@ public class Pelicula implements IPelicula {
     public String getNombre() {
         return this.nombre;
     }
+    
+    @Override
+    public String getRanking(){
+        return this.ranking;
+    }
+            
 
     @Override
     public void setNombre(String nombre) {

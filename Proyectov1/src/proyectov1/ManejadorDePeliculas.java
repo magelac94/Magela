@@ -211,6 +211,7 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
 
     @Override
     public Lista<Pelicula> buscarPorFechaLista(String fechaBuscar, Lista<Pelicula> listaDondeBuscar) {
+        System.out.println("Fecha Buscar: "+fechaBuscar);
         if (fechaBuscar != null) {
             IManejadorDePeliculas buscopeli = new ManejadorDePeliculas(); // creo una listita para las peliculas encontradas
 
@@ -230,7 +231,29 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
         }
 
     }
+    @Override
+    public Lista<Pelicula> buscarPorRankingLista(String rankingBuscar, Lista<Pelicula> listaDondeBuscar) {
+        System.out.println("Ranking Buscar:"+rankingBuscar);
+        
+            IManejadorDePeliculas buscopeli = new ManejadorDePeliculas(); // creo una listita para las peliculas encontradas
 
+            INodo<Pelicula> aux = listaDondeBuscar.getPrimero();
+
+            while (aux != null) {
+                
+                int numeroRanking = aux.getDato().getRanking().charAt(0);
+              
+                System.out.println("NUMERO RANKING BUSCAR>>"+numeroRanking);
+                if (numeroRanking == Integer.parseInt(rankingBuscar)) {
+                    
+                    buscopeli.insertarPelicula(aux.getDato());
+                }
+                aux = aux.getSiguiente();
+            }
+            return buscopeli.getLista();
+        
+    }
+    
     // Auxiliares.contieneA(nombre, aux.getDato().getNombre())
     /**
      * Retorna el tama�o del almacen: cantidad de productos. No es lo mismo que

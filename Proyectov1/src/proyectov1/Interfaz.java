@@ -108,7 +108,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel5.setText("Descripcion");
 
-        jComboBuscarRanking.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos ","10 estrellas", "9  estrellas", "8  estrellas", "7  estrellas", "6  estrellas", "5  estrellas", "4  estrellas", "3  estrellas", "2  estrellas", "1  estrella" }));
+        jComboBuscarRanking.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos","10 estrellas", "9  estrellas", "8  estrellas", "7  estrellas", "6  estrellas", "5  estrellas", "4  estrellas", "3  estrellas", "2  estrellas", "1  estrella" }));
         jComboBuscarRanking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBuscarRankingActionPerformed(evt);
@@ -274,12 +274,12 @@ public class Interfaz extends javax.swing.JFrame {
         String nombreBuscar = jTextBuscarNombre.getText();
         String fechaBuscar = jTextBuscarFecha.getText();
         String rankingBuscar = jComboBuscarRanking.getSelectedItem().toString();
-        System.err.println("ranking buscar: "+rankingBuscar);
+       
         String descripcionBuscar = jTextBuscarDescripcion.getText();
         Lista<Pelicula> buscar;
         DefaultListModel model = new DefaultListModel();
         jListPeliculas.setModel(model);
-    
+
         /*  try {
             Pelicula buscar = aedMovieAdapter.buscarPorNombre(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;
             System.out.println("Pelicula entontrada: " + buscar.getNombre());
@@ -293,18 +293,22 @@ public class Interfaz extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Pelicula No existe en el sistema o hay otro problema");
 
         } */
-
         try {
-            
-                buscar = aedMovieAdapter.buscarPorNombreLista(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;
-                
-            //    buscar = aedMovieAdapter.buscarPorFechaLista(nombreBuscar,buscar);
-            
-            if (buscar != null) {
-                CargarPanelIzquiero(model, buscar);
 
+            buscar = aedMovieAdapter.buscarPorNombreLista(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;
+
+            buscar = aedMovieAdapter.buscarPorFechaLista(fechaBuscar, buscar);
+            
+            if (! rankingBuscar.equals("Todos"))  {
+                String ran = String.valueOf(rankingBuscar.charAt(0));
+                System.out.println("EN el medio de RANKING");
+                buscar = aedMovieAdapter.buscarPorRankingLista(ran , buscar);
+                System.out.println("DESPUES DE RANKING");                    
             }
+            //     if (buscar != null) {
+                   CargarPanelIzquiero(model, buscar);
 
+            // }
         } catch (Exception ex) {
             System.out.println("Pelicula No existe en el sistema o hay otro problema 2 ");
             JOptionPane.showMessageDialog(null, "Pelicula No existe en el sistema o hay otro problema");

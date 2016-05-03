@@ -297,7 +297,8 @@ public class Interfaz extends javax.swing.JFrame {
         try {
             
                 buscar = aedMovieAdapter.buscarPorNombreLista(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;
-             
+                
+            //    buscar = aedMovieAdapter.buscarPorFechaLista(nombreBuscar,buscar);
             
             if (buscar != null) {
                 CargarPanelIzquiero(model, buscar);

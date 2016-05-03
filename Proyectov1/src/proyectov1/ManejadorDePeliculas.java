@@ -187,21 +187,48 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
 
     }
 
-    @Override
-    public Lista<Pelicula> buscarPorNombreLista(String nombreBuscar, Lista<Pelicula> listaDondeBuscar) {
-        IManejadorDePeliculas buscopeli = new ManejadorDePeliculas(); // creo una listita para las peliculas encontradas
+    @Override 
+    public Lista<Pelicula> buscarPorNombreLista(String nombreBuscar, Lista<Pelicula> listaDondeBuscar){
+    if (nombreBuscar != null) {
+            IManejadorDePeliculas buscopeli = new ManejadorDePeliculas(); // creo una listita para las peliculas encontradas
 
-        INodo<Pelicula> aux = listaDondeBuscar.getPrimero();
+            INodo<Pelicula> aux = listaDondeBuscar.getPrimero();
 
-        while (aux != null) {
-            int estoyNoestoy = aux.getDato().getNombre().toUpperCase().indexOf(nombreBuscar.toUpperCase());
+            while (aux != null) {
+                int estoyNoestoy = aux.getDato().getNombre().toUpperCase().indexOf(nombreBuscar.toUpperCase());
 
-            if (estoyNoestoy != -1) {
-                buscopeli.insertarPelicula(aux.getDato());
+                if (estoyNoestoy != -1) {
+                    buscopeli.insertarPelicula(aux.getDato());
+                }
+                aux = aux.getSiguiente();
             }
-            aux = aux.getSiguiente();
+            return buscopeli.getLista();
+        }else{
+            return listaDondeBuscar;
         }
-        return buscopeli.getLista();
+
+    }
+
+    @Override
+    public Lista<Pelicula> buscarPorFechaLista(String fechaBuscar, Lista<Pelicula> listaDondeBuscar) {
+        if (fechaBuscar != null) {
+            IManejadorDePeliculas buscopeli = new ManejadorDePeliculas(); // creo una listita para las peliculas encontradas
+
+            INodo<Pelicula> aux = listaDondeBuscar.getPrimero();
+
+            while (aux != null) {
+                int estoyNoestoy = aux.getDato().getFecha().toUpperCase().indexOf(fechaBuscar.toUpperCase());
+
+                if (estoyNoestoy != -1) {
+                    buscopeli.insertarPelicula(aux.getDato());
+                }
+                aux = aux.getSiguiente();
+            }
+            return buscopeli.getLista();
+        }else{
+            return listaDondeBuscar;
+        }
+
     }
 
     // Auxiliares.contieneA(nombre, aux.getDato().getNombre())

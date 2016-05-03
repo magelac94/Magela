@@ -26,6 +26,7 @@ public class Interfaz extends javax.swing.JFrame {
     public Interfaz() {
         aedMovieAdapter = new AEDMovieAdapterDummy();
         this.setTitle("PopOut");
+        aedMovieAdapter.cargarDatos();
         initComponents();
     }
 
@@ -233,7 +234,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonDeCargarActionPerformed
 
     private void CargarPanelIzquiero(DefaultListModel panel, Lista lista) {
-      //  panel.clear();
+        //  panel.clear();
         //   jTextAreaDerecha.removeAll();
         INodo<Pelicula> aux = lista.getPrimero();
         while (aux != null) {
@@ -243,7 +244,7 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     public void CargarPanelIzquiero(DefaultListModel panel, Pelicula peli) {
-       // panel.clear();
+        // panel.clear();
         panel.addElement(peli.getNombre());
     }
 
@@ -269,16 +270,17 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBuscarRankingActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-   //     jTextAreaDerecha.removeAll();
+        jTextAreaDerecha.removeAll();
         String nombreBuscar = jTextBuscarNombre.getText();
         String fechaBuscar = jTextBuscarFecha.getText();
-        //    String rankingBuscar = jComboBuscarRanking.getToolTipText(event);
+        String rankingBuscar = jComboBuscarRanking.getSelectedItem().toString();
+        System.err.println("ranking buscar: "+rankingBuscar);
         String descripcionBuscar = jTextBuscarDescripcion.getText();
-
+        Lista<Pelicula> buscar;
         DefaultListModel model = new DefaultListModel();
         jListPeliculas.setModel(model);
-        System.out.println("LLEGA");
-      /*  try {
+    
+        /*  try {
             Pelicula buscar = aedMovieAdapter.buscarPorNombre(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;
             System.out.println("Pelicula entontrada: " + buscar.getNombre());
             if (buscar != null){
@@ -291,19 +293,22 @@ public class Interfaz extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Pelicula No existe en el sistema o hay otro problema");
 
         } */
-      
-     // try {
-            Lista<Pelicula> buscar = aedMovieAdapter.buscarPorNombreLista(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;
-            if (buscar != null){
+
+        try {
+            
+                buscar = aedMovieAdapter.buscarPorNombreLista(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;
+             
+            
+            if (buscar != null) {
                 CargarPanelIzquiero(model, buscar);
-                //jTextAreaDerecha.removeAll();
+
             }
 
-     //   } catch (Exception ex) {
+        } catch (Exception ex) {
             System.out.println("Pelicula No existe en el sistema o hay otro problema 2 ");
             JOptionPane.showMessageDialog(null, "Pelicula No existe en el sistema o hay otro problema");
 
-      //  }
+        }
 
 
     }//GEN-LAST:event_jButtonBuscarActionPerformed

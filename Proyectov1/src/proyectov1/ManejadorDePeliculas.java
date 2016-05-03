@@ -5,9 +5,6 @@
  */
 package proyectov1;
 
-
-
-
 /**
  *
  * @author Magela
@@ -25,7 +22,7 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
     
     // buscar pelicula o  actor.
      */
-    private Lista listaPeliculas = new Lista();
+    private Lista<Pelicula> listaPeliculas = new Lista();
 
     @Override
     public Lista<Pelicula> getLista() {
@@ -115,8 +112,6 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
         IPelicula producto = nodoConPelicula.getDato();
         return producto;
     }
-    
-    
 
     /**
      * Busca un producto por su descripci�n.
@@ -169,24 +164,47 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
         }
         return null;
     }
-    
+
     @Override
-    public Lista <Pelicula> buscarPorNombreLista(String nombre){
+    public Lista<Pelicula> buscarPorNombreLista(String nombreBuscar) {
+        if (nombreBuscar != null) {
+            IManejadorDePeliculas buscopeli = new ManejadorDePeliculas(); // creo una listita para las peliculas encontradas
+
+            INodo<Pelicula> aux = listaPeliculas.getPrimero();
+
+            while (aux != null) {
+                int estoyNoestoy = aux.getDato().getNombre().toUpperCase().indexOf(nombreBuscar.toUpperCase());
+                System.out.println(estoyNoestoy);
+                if (estoyNoestoy != -1) {
+                    buscopeli.insertarPelicula(aux.getDato());
+                }
+                aux = aux.getSiguiente();
+            }
+            return buscopeli.getLista();
+        } else {
+            return listaPeliculas;
+        }
+
+    }
+
+    @Override
+    public Lista<Pelicula> buscarPorNombreLista(String nombreBuscar, Lista<Pelicula> listaDondeBuscar) {
         IManejadorDePeliculas buscopeli = new ManejadorDePeliculas(); // creo una listita para las peliculas encontradas
-        
-        INodo<Pelicula> aux = listaPeliculas.getPrimero();
+
+        INodo<Pelicula> aux = listaDondeBuscar.getPrimero();
 
         while (aux != null) {
-            if (Auxiliares.contieneA(nombre, aux.getDato().getNombre())) {
+            int estoyNoestoy = aux.getDato().getNombre().toUpperCase().indexOf(nombreBuscar.toUpperCase());
+
+            if (estoyNoestoy != -1) {
                 buscopeli.insertarPelicula(aux.getDato());
             }
             aux = aux.getSiguiente();
         }
         return buscopeli.getLista();
     }
-    
-    
 
+    // Auxiliares.contieneA(nombre, aux.getDato().getNombre())
     /**
      * Retorna el tama�o del almacen: cantidad de productos. No es lo mismo que
      * el total de stock, sino que ser�a en definitiva el tama�o de la lista.

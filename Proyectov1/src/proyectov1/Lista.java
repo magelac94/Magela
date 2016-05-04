@@ -1,5 +1,8 @@
 package proyectov1;
 
+import interfaces.ILista;
+import interfaces.INodo;
+
 public class Lista<E> implements ILista<E> {
 
     private INodo<E> primero;

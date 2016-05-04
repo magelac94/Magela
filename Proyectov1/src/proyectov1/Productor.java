@@ -11,23 +11,21 @@ import interfaces.IPersona;
  *
  * @author Magela
  */
-public class Actor implements IPersona {
+public class Productor implements IPersona{
+    final Comparable idProductor ;
+    String nomProductor;
     
-    final Comparable idActor ;
-    String nomActor;
-    
-    public Actor(Comparable idActor, String nomActor)
+    public Productor(Comparable idActor, String nomActor)
     {
-        this.idActor=idActor;
-        this.nomActor=nomActor;
+        this.idProductor=idActor;
+        this.nomProductor=nomActor;
     }
     @Override
     public Comparable getId(){
-        return this.idActor;
+        return this.idProductor;
     }
-    @Override     
+    @Override    
     public String getNombre(){
-        return this.nomActor;
+        return this.nomProductor;
     }
-    
 }

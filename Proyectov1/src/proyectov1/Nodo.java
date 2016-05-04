@@ -1,5 +1,7 @@
 package proyectov1;
 
+import interfaces.INodo;
+
 public class Nodo<T> implements INodo<T> {
 
     private final Comparable etiqueta;

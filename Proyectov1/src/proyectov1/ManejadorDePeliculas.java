@@ -5,6 +5,10 @@
  */
 package proyectov1;
 
+import interfaces.INodo;
+import interfaces.IPelicula;
+import interfaces.IManejadorDePeliculas;
+
 /**
  *
  * @author Magela
@@ -215,7 +219,29 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
             return buscopeli.getLista();
         
     }
+    @Override
+    public Lista<Pelicula> buscarPorFechaLista(short fechaBuscar) {
+        System.out.println("Fecha Estreno que paso" + fechaBuscar);
 
+        IManejadorDePeliculas buscopeli = new ManejadorDePeliculas(); // creo una listita para las peliculas encontradas
+        INodo<Pelicula> aux = listaPeliculas.getPrimero();
+        while (aux != null) {
+            short fechaPelicula = aux.getDato().getFecha();
+            if (fechaPelicula == fechaBuscar) {
+                //    int estoyNoestoy = aux.getDato().getFecha().toUpperCase().indexOf(fechaBuscar.toUpperCase());
+
+             //   if (estoyNoestoy != -1) {
+                    buscopeli.insertarPelicula(aux.getDato());
+                    System.out.println("Fecha Estreno" + aux.getDato().getFecha());
+
+                }
+                aux = aux.getSiguiente();
+            }
+            return buscopeli.getLista();
+        
+    }
+
+    /// NO ordena por ranking solo muestras lo de determinado ranking.-.... estaria bueno ordenar por ranking
     @Override
     public Lista<Pelicula> buscarPorRankingLista(float rankingBuscar, Lista<Pelicula> listaDondeBuscar) {
 

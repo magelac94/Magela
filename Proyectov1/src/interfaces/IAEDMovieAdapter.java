@@ -3,9 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectov1;
+package interfaces;
 
 import proyectov1.*;
+import proyectov1.Actor;
+import proyectov1.ActorPelicula;
+import proyectov1.Lista;
+import proyectov1.Pelicula;
 
 /**
  *
@@ -26,6 +30,7 @@ public interface IAEDMovieAdapter {
     Lista<ActorPelicula> getActorPelicula();
     Pelicula buscarPorNombre(String nombre);
     Lista<Pelicula> buscarPorNombreLista(String nombre);
+    Lista<Pelicula> buscarPorFechaLista(short fecha);
 
         
 }

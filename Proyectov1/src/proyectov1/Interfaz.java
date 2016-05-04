@@ -5,6 +5,10 @@
  */
 package proyectov1;
 
+import interfaces.INodo;
+import interfaces.IAEDMovieAdapter;
+import java.util.Calendar;
+import java.util.Date;
 import proyectov1.*;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -19,6 +23,7 @@ import javax.swing.plaf.basic.BasicListUI;
 public class Interfaz extends javax.swing.JFrame {
 
     IAEDMovieAdapter aedMovieAdapter;
+    
 
     /**
      * Creates new form AEDIMovieFrame
@@ -27,7 +32,9 @@ public class Interfaz extends javax.swing.JFrame {
         aedMovieAdapter = new AEDMovieAdapterDummy();
         this.setTitle("PopOut");
         aedMovieAdapter.cargarDatos();
-        // aedMovieAdapter.cargarEstrenos();
+       // DefaultListModel model = new DefaultListModel();
+      
+        cargarEstrenos();
         initComponents();
     }
 
@@ -274,7 +281,41 @@ public class Interfaz extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public void cargarEstrenos() {
+        Calendar fecha = Calendar.getInstance();
+	int fechita = fecha.get(Calendar.YEAR);
+        System.out.println("     AñOOOOO:"+ fechita);
+        
+        short myshort = (short) fechita;
+        short myshortMenosUno = (short) (fechita-1);
+        System.out.println("     MyShort:"+ myshort);
 
+       // DefaultListModel model = new DefaultListModel();
+     //   jListPeliculas.setModel(model);
+      //  Lista<Pelicula> lista = aedMovieAdapter.getPeliculas(); // todas las peliculas
+       // CargarPanelIzquiero(model, lista);
+        
+        
+     //   DefaultListModel model = new DefaultListModel();
+       // jListPeliculas.setModel(model);
+        Lista<Pelicula> lista;
+        
+        try{
+        lista = aedMovieAdapter.buscarPorFechaLista(myshort); // estrenos 2016
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "¡No hay estrenos en este aÑo!");
+            myshort++;
+            lista = aedMovieAdapter.buscarPorFechaLista(myshortMenosUno);
+        }
+     //   jListPeliculas.setModel(model);
+      //  CargarPanelIzquiero(model, lista);
+        
+        
+   //       DefaultListModel model = new DefaultListModel();
+//        jListPeliculas.setModel(model);
+       // CargarPanelIzquiero(null,aedMovieAdapter.buscarPorFechaLista(myshort));
+
+    }
     private void jButtonDeCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeCargarActionPerformed
         try {
             aedMovieAdapter.cargarDatos();
@@ -292,6 +333,8 @@ public class Interfaz extends javax.swing.JFrame {
     private void CargarPanelIzquiero(DefaultListModel panel, Lista lista) {
         INodo<Pelicula> aux = lista.getPrimero();
         while (aux != null) {
+            System.out.println("ESTOY AQUI ?");
+            //jListPeliculas.setModel(model);
             panel.addElement(aux.getDato().getNombre());
             aux = aux.getSiguiente();
         }
@@ -325,7 +368,7 @@ public class Interfaz extends javax.swing.JFrame {
         String fechaBuscar = jTextBuscarFecha.getText();
         String rankingBuscar = jComboBuscarRanking.getSelectedItem().toString();
         Lista<Pelicula> buscar;
-        DefaultListModel model = new DefaultListModel();
+       DefaultListModel model = new DefaultListModel();
         jListPeliculas.setModel(model);
         try {
             buscar = aedMovieAdapter.buscarPorNombreLista(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;

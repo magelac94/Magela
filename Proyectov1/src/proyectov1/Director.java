@@ -11,23 +11,23 @@ import interfaces.IPersona;
  *
  * @author Magela
  */
-public class Actor implements IPersona {
+public class Director implements IPersona{
     
-    final Comparable idActor ;
-    String nomActor;
+    final Comparable idDirector ;
+    String nomDirector;
     
-    public Actor(Comparable idActor, String nomActor)
+    public Director(Comparable idActor, String nomActor)
     {
-        this.idActor=idActor;
-        this.nomActor=nomActor;
+        this.idDirector=idActor;
+        this.nomDirector=nomActor;
     }
     @Override
     public Comparable getId(){
-        return this.idActor;
-    }
-    @Override     
-    public String getNombre(){
-        return this.nomActor;
+        return this.idDirector;
     }
     
+    @Override    
+    public String getNombre(){
+        return this.nomDirector;
+    }
 }

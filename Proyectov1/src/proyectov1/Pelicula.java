@@ -5,6 +5,8 @@
  */
 package proyectov1;
 
+import interfaces.IPelicula;
+
 /**
  *
  * @author Magela
@@ -27,9 +29,9 @@ public class Pelicula implements IPelicula {
     }
 
     public String toText(){
-        String texto =  "\n\nAño: " + this.fecha + 
+        String texto =  "\n\nYear: " + this.fecha + 
                         "\nRanking: "+ this.ranking + " Estrellas" + 
-                        "\n\nDescripción:"+this.descripcion; //+
+                        "\n\nDescription: "+this.descripcion; //+
                   //      "\nActores:" + obtenerActores() +
                   //      "\nDirectores: "+ obtenerDirectores();
         return texto;

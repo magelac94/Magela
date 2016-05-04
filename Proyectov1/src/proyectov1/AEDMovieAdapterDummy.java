@@ -5,6 +5,10 @@
  */
 package proyectov1;
 
+import auxiliares.ManejadorArchivosGenerico;
+import interfaces.IManejadorDePeliculas;
+import interfaces.IAEDMovieAdapter;
+
 /**
  *
  * @author Magela
@@ -65,7 +69,10 @@ public class AEDMovieAdapterDummy implements IAEDMovieAdapter {
     public Lista<Pelicula>buscarPorFechaLista(short fecha, Lista<Pelicula> lista){
         return manejadorPeliculas.buscarPorFechaLista(fecha,lista);
     }
-    
+    @Override
+    public Lista<Pelicula> buscarPorFechaLista(short fecha){
+        return manejadorPeliculas.buscarPorFechaLista(fecha);
+    }
     @Override
     public Lista<Pelicula>buscarPorRankingLista(float ranking, Lista<Pelicula> lista){
         return manejadorPeliculas.buscarPorRankingLista(ranking, lista);

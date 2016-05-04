@@ -11,11 +11,11 @@ package proyectov1;
  */
 public class Pelicula implements IPelicula {
 
-    public Comparable id;
-    public String nombre;
-    public String fecha;
-    public String ranking;
-    public String descripcion;
+    private Comparable id;
+    private String nombre;
+    private String fecha;
+    private String ranking;
+    private String descripcion;
     
 
     public Pelicula(Comparable id, String nombre, String fecha, String ranking, String descripcion) {
@@ -27,7 +27,11 @@ public class Pelicula implements IPelicula {
     }
 
     public String toText(){
-        String texto = "Nombre: "+this.nombre+"\nID Pelicula: "+String.valueOf(this.id)+"\nActores:";
+        String texto =  "\n\nAño: " + this.fecha + 
+                        "\nRanking: "+ this.ranking + " Estrellas" + 
+                        "\n\nDescripción:"+this.descripcion; //+
+                  //      "\nActores:" + obtenerActores() +
+                  //      "\nDirectores: "+ obtenerDirectores();
         return texto;
     
     }

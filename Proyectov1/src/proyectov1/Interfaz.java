@@ -41,8 +41,6 @@ public class Interfaz extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jListPeliculas = new javax.swing.JList();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextAreaDerecha = new javax.swing.JTextArea();
         jButtonDeCargar = new javax.swing.JButton();
         jTextBuscarNombre = new javax.swing.JTextField();
         jTextBuscarFecha = new javax.swing.JTextField();
@@ -60,19 +58,20 @@ public class Interfaz extends javax.swing.JFrame {
         jComboBoxGenero = new javax.swing.JComboBox<>();
         jTextFieldActor = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextAreaDerecha = new javax.swing.JTextArea();
+        jTextFieldNombre = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jListPeliculas.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
         jListPeliculas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jListPeliculasMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jListPeliculas);
-
-        jTextAreaDerecha.setColumns(20);
-        jTextAreaDerecha.setRows(5);
-        jScrollPane2.setViewportView(jTextAreaDerecha);
 
         jButtonDeCargar.setText("Cargar");
         jButtonDeCargar.addActionListener(new java.awt.event.ActionListener() {
@@ -81,18 +80,21 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        jTextBuscarNombre.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
         jTextBuscarNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextBuscarNombreActionPerformed(evt);
             }
         });
 
+        jTextBuscarFecha.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
         jTextBuscarFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextBuscarFechaActionPerformed(evt);
             }
         });
 
+        jButtonBuscar.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
         jButtonBuscar.setText("Buscar");
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,16 +102,22 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
         jLabel1.setText("BUSCAR:");
 
+        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
         jLabel2.setText("Nombre");
 
+        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
         jLabel3.setText("Año");
 
+        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
         jLabel4.setText("Ranking");
 
+        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
         jLabel5.setText("Genero");
 
+        jComboBuscarRanking.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
         jComboBuscarRanking.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos","10 estrellas", "9  estrellas", "8  estrellas", "7  estrellas", "6  estrellas", "5  estrellas", "4  estrellas", "3  estrellas", "2  estrellas", "1  estrella" }));
         jComboBuscarRanking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,6 +132,7 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        jComboBoxGenero.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
         jComboBoxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Item 2", "Item 3", "Item 4" }));
 
         jTextFieldActor.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +141,37 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
         jLabel7.setText("Actor/Director");
+
+        jTextAreaDerecha.setColumns(20);
+        jTextAreaDerecha.setFont(new java.awt.Font("Trebuchet MS", 0, 13)); // NOI18N
+        jTextAreaDerecha.setLineWrap(true);
+        jTextAreaDerecha.setRows(5);
+        jTextAreaDerecha.setName(""); // NOI18N
+        jScrollPane2.setViewportView(jTextAreaDerecha);
+
+        jTextFieldNombre.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
+                    .addComponent(jTextFieldNombre))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,10 +187,10 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButtonDeCargar)))
+                                .addGap(0, 480, Short.MAX_VALUE)
+                                .addComponent(jButtonDeCargar))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -180,7 +219,7 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jComboBuscarRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButtonBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                                .addComponent(jButtonBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                                 .addGap(56, 56, 56))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(32, 32, 32)
@@ -221,15 +260,16 @@ public class Interfaz extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(127, 127, 127)
-                                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
+                                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addComponent(jButtonDeCargar)
                         .addGap(1, 1, 1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
-                        .addGap(11, 11, 11)))
-                .addContainerGap())
+                        .addGap(11, 11, 11))))
         );
 
         pack();
@@ -240,13 +280,10 @@ public class Interfaz extends javax.swing.JFrame {
         DefaultListModel model = new DefaultListModel();
         jListPeliculas.setModel(model);
         Lista<Pelicula> lista = aedMovieAdapter.getPeliculas(); // todas las peliculas
-
         CargarPanelIzquiero(model, lista);
     }//GEN-LAST:event_jButtonDeCargarActionPerformed
 
     private void CargarPanelIzquiero(DefaultListModel panel, Lista lista) {
-        //  panel.clear();
-        //   jTextAreaDerecha.removeAll();
         INodo<Pelicula> aux = lista.getPrimero();
         while (aux != null) {
             panel.addElement(aux.getDato().getNombre());
@@ -255,7 +292,6 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     public void CargarPanelIzquiero(DefaultListModel panel, Pelicula peli) {
-        // panel.clear();
         panel.addElement(peli.getNombre());
     }
 
@@ -264,9 +300,6 @@ public class Interfaz extends javax.swing.JFrame {
         CargarPanelDerecho(selected);
 
     }//GEN-LAST:event_jListPeliculasMouseClicked
-
-    // private void CargarPanelDerecho(DefaultListModel panel,Lista lista){
-    // }
 
     private void jTextBuscarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextBuscarNombreActionPerformed
         // TODO add your handling code here:
@@ -285,62 +318,36 @@ public class Interfaz extends javax.swing.JFrame {
         String nombreBuscar = jTextBuscarNombre.getText();
         String fechaBuscar = jTextBuscarFecha.getText();
         String rankingBuscar = jComboBuscarRanking.getSelectedItem().toString();
-       
-       
         Lista<Pelicula> buscar;
         DefaultListModel model = new DefaultListModel();
         jListPeliculas.setModel(model);
-
-        /*  try {
-            Pelicula buscar = aedMovieAdapter.buscarPorNombre(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;
-            System.out.println("Pelicula entontrada: " + buscar.getNombre());
-            if (buscar != null){
-                CargarPanelIzquiero(model, buscar);
-                //jTextAreaDerecha.removeAll();
-            }
-
-        } catch (Exception ex) {
-            System.out.println("Pelicula No existe en el sistema o hay otro problema");
-            JOptionPane.showMessageDialog(null, "Pelicula No existe en el sistema o hay otro problema");
-
-        } */
         try {
-
             buscar = aedMovieAdapter.buscarPorNombreLista(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;
-
             buscar = aedMovieAdapter.buscarPorFechaLista(fechaBuscar, buscar);
-            
-            if (! rankingBuscar.equals("Todos"))  {
-            
+            if (!rankingBuscar.equals("Todos")) {
                 String ran = String.valueOf(rankingBuscar.charAt(0));
-                System.out.println("Ranking a Buscar:::"+ran);
-                
-                buscar = aedMovieAdapter.buscarPorRankingLista(ran , buscar);
-                
-                
-         
-                
-                              
+                System.out.println("Ranking a Buscar:::" + ran);
+                buscar = aedMovieAdapter.buscarPorRankingLista(ran, buscar);
             }
-            //     if (buscar != null) {
-                   CargarPanelIzquiero(model, buscar);
+            CargarPanelIzquiero(model, buscar);
 
-            // }
         } catch (Exception ex) {
             System.out.println("Pelicula No existe en el sistema o hay otro problema 2 ");
             JOptionPane.showMessageDialog(null, "Pelicula No existe en el sistema o hay otro problema");
-
         }
-
+        
     }//GEN-LAST:event_jButtonBuscarActionPerformed
-
     private void jTextFieldActorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldActorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldActorActionPerformed
 
     private void CargarPanelDerecho(Pelicula p) {
         if (p != null) {
+            jTextFieldNombre.setText(p.getNombre());
             jTextAreaDerecha.setText(p.toText());
+        //  String nombre =p.getNombre();
+          
+
         }
     }
 
@@ -396,6 +403,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JList jListPeliculas;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
@@ -404,5 +412,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField jTextBuscarFecha;
     private javax.swing.JTextField jTextBuscarNombre;
     private javax.swing.JTextField jTextFieldActor;
+    private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
 }

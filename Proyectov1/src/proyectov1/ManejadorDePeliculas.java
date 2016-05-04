@@ -31,7 +31,7 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
 
     @Override
     public void insertarPelicula(Pelicula unaPelicula) {
-        Nodo<Pelicula> nuevoNodo = new Nodo<>(unaPelicula, unaPelicula.id);
+        Nodo<Pelicula> nuevoNodo = new Nodo<>(unaPelicula, unaPelicula.getId());
         this.listaPeliculas.insertar(nuevoNodo);
     }
 

@@ -14,7 +14,7 @@ import javax.swing.plaf.basic.BasicListUI;
 
 /**
  *
- * @author Josse
+ * @author Magela
  */
 public class Interfaz extends javax.swing.JFrame {
 
@@ -27,6 +27,7 @@ public class Interfaz extends javax.swing.JFrame {
         aedMovieAdapter = new AEDMovieAdapterDummy();
         this.setTitle("PopOut");
         aedMovieAdapter.cargarDatos();
+        // aedMovieAdapter.cargarEstrenos();
         initComponents();
     }
 
@@ -316,17 +317,18 @@ public class Interfaz extends javax.swing.JFrame {
         jTextAreaDerecha.removeAll();
         String nombreBuscar = jTextBuscarNombre.getText();
         String fechaBuscar = jTextBuscarFecha.getText();
+        short fechaShort = Short.parseShort(fechaBuscar); // validar esto que no vaya a explotar, debe tener 4 digitos con un catch se soluciona
         String rankingBuscar = jComboBuscarRanking.getSelectedItem().toString();
         Lista<Pelicula> buscar;
         DefaultListModel model = new DefaultListModel();
         jListPeliculas.setModel(model);
         try {
             buscar = aedMovieAdapter.buscarPorNombreLista(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;
-            buscar = aedMovieAdapter.buscarPorFechaLista(fechaBuscar, buscar);
+            buscar = aedMovieAdapter.buscarPorFechaLista(fechaShort, buscar);
             if (!rankingBuscar.equals("Todos")) {
                 String ran = String.valueOf(rankingBuscar.charAt(0));
-                System.out.println("Ranking a Buscar:::" + ran);
-                buscar = aedMovieAdapter.buscarPorRankingLista(ran, buscar);
+                float rankingB = Float.parseFloat(ran); // validas conversion sino esta mal ingresado
+                buscar = aedMovieAdapter.buscarPorRankingLista(rankingB, buscar);
             }
             CargarPanelIzquiero(model, buscar);
 
@@ -345,9 +347,7 @@ public class Interfaz extends javax.swing.JFrame {
             jTextFieldNombre.setText(p.getNombre());
             jTextAreaDerecha.setText(p.toText());
         //  String nombre =p.getNombre();
-          
-
-        }
+           }
     }
 
     /**

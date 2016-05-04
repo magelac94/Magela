@@ -16,10 +16,10 @@ public interface IPelicula{
      *
      * @return precio del Producto.
      */
-    public String getFecha();
+    public short getFecha();
 
-    public void setRanking(String ranking);
-    public String getRanking();
+    public void setRanking(float ranking);
+    public float getRanking();
 
     /**
      * Retorna el stock del Producto.

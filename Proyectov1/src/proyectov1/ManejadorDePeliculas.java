@@ -11,17 +11,6 @@ package proyectov1;
  */
 public class ManejadorDePeliculas implements IManejadorDePeliculas {
 
-    /*   public void AgregarPeliculaBD(String dato1, String dato2, String dato3, String dato4, String dato5) {
-        Pelicula peliculanueva = new Pelicula(dato1,dato2,dato3,dato4,dato5);
-        AgregarEnBD(peliculanueva); 
-        
-    }
-    public void BuscarPelicula(Pelicula pelicula){
-     //   BuscarPelicula(pelicula);
-    }
-    
-    // buscar pelicula o  actor.
-     */
     private Lista<Pelicula> listaPeliculas = new Lista();
 
     @Override
@@ -139,11 +128,11 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
     }
 
     @Override
-    public Pelicula buscarPorFecha(String fecha) {
+    public Pelicula buscarPorFecha(short fecha) {
         INodo<Pelicula> aux = listaPeliculas.getPrimero();
 
         while (aux != null) {
-            if (aux.getDato().getFecha().equals(fecha)) {
+            if (aux.getDato().getFecha() == fecha) {
                 return aux.getDato();
             }
             aux = aux.getSiguiente();
@@ -210,42 +199,37 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
     }
 
     @Override
-    public Lista<Pelicula> buscarPorFechaLista(String fechaBuscar, Lista<Pelicula> listaDondeBuscar) {
-        System.out.println("Fecha Buscar: " + fechaBuscar);
-        if (fechaBuscar != null) {
-            IManejadorDePeliculas buscopeli = new ManejadorDePeliculas(); // creo una listita para las peliculas encontradas
+    public Lista<Pelicula> buscarPorFechaLista(short fechaBuscar, Lista<Pelicula> listaDondeBuscar) {
+        IManejadorDePeliculas buscopeli = new ManejadorDePeliculas(); // creo una listita para las peliculas encontradas
+        INodo<Pelicula> aux = listaDondeBuscar.getPrimero();
+        while (aux != null) {
+            short fechaPelicula = aux.getDato().getFecha();
+            if (fechaPelicula == fechaBuscar) {
+                //    int estoyNoestoy = aux.getDato().getFecha().toUpperCase().indexOf(fechaBuscar.toUpperCase());
 
-            INodo<Pelicula> aux = listaDondeBuscar.getPrimero();
-
-            while (aux != null) {
-                int estoyNoestoy = aux.getDato().getFecha().toUpperCase().indexOf(fechaBuscar.toUpperCase());
-
-                if (estoyNoestoy != -1) {
+             //   if (estoyNoestoy != -1) {
                     buscopeli.insertarPelicula(aux.getDato());
                 }
                 aux = aux.getSiguiente();
             }
             return buscopeli.getLista();
-        } else {
-            return listaDondeBuscar;
-        }
-
+        
     }
 
     @Override
-    public Lista<Pelicula> buscarPorRankingLista(String rankingBuscar, Lista<Pelicula> listaDondeBuscar) {
+    public Lista<Pelicula> buscarPorRankingLista(float rankingBuscar, Lista<Pelicula> listaDondeBuscar) {
 
         IManejadorDePeliculas buscopeli = new ManejadorDePeliculas(); // creo una listita para las peliculas encontradas
 
         INodo<Pelicula> aux = listaDondeBuscar.getPrimero();
 
-        float rBuscar = Float.parseFloat(rankingBuscar); // es el numero que ingreso solito
-        float pRanking; 
+     //   float rBuscar = Float.parseFloat(rankingBuscar); // es el numero que ingreso solito
+       // float pRanking;
         while (aux != null) {
-            pRanking = Float.parseFloat(aux.getDato().getRanking()); // el numero verdadero del ranking
-             
-            if (pRanking >= rBuscar && pRanking < (rBuscar+1)){
-                System.out.println("Ranking de la Pelicula a COmparar"+pRanking);
+            float pRanking = aux.getDato().getRanking(); // el numero verdadero del ranking
+
+            if (pRanking >= rankingBuscar && pRanking < (rankingBuscar + 1)) {
+                System.out.println("Ranking de la Pelicula a COmparar" + pRanking);
                 buscopeli.insertarPelicula(aux.getDato());
             }
             aux = aux.getSiguiente();

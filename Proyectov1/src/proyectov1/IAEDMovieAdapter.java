@@ -15,27 +15,16 @@ public interface IAEDMovieAdapter {
     void cargarDatos();
     
     Lista<Pelicula> obtenerPeliculas();
-    
     Lista<Actor> obtenerActores();
-    
     Lista<ActorPelicula> obtenerPeliculasActores();
-    
     Lista<Pelicula> getPeliculas();
-    
     Pelicula getPelicula(String nombre);
-    
-    
     IManejadorDePeliculas getManejador();
-
-    
     Lista<Actor> getActores();
-    Lista<Pelicula>buscarPorFechaLista(String nombre, Lista<Pelicula> lista);
-    Lista<Pelicula>buscarPorRankingLista(String ranking, Lista<Pelicula> lista);
-  
+    Lista<Pelicula>buscarPorFechaLista(short fecha, Lista<Pelicula> lista);
+    Lista<Pelicula>buscarPorRankingLista(float ranking, Lista<Pelicula> lista);
     Lista<ActorPelicula> getActorPelicula();
-    
     Pelicula buscarPorNombre(String nombre);
-    
     Lista<Pelicula> buscarPorNombreLista(String nombre);
 
         

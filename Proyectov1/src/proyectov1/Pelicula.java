@@ -13,12 +13,12 @@ public class Pelicula implements IPelicula {
 
     private Comparable id;
     private String nombre;
-    private String fecha;
-    private String ranking;
+    private short fecha;
+    private float ranking;
     private String descripcion;
     
 
-    public Pelicula(Comparable id, String nombre, String fecha, String ranking, String descripcion) {
+    public Pelicula(Comparable id, String nombre, short fecha, float ranking, String descripcion) {
         this.id = id;
         this.fecha = fecha;
         this.nombre = nombre;
@@ -36,29 +36,18 @@ public class Pelicula implements IPelicula {
     
     }
     
-    /*
-    // para peliculas nuevas el id se autogenera
-    public Pelicula(String fecha, String nombre, String descripcion, Integer ranking) {
-        this.id = "0"; // autogenerar
-        this.fecha = fecha;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.ranking = ranking;
-    }
-    */
-    
     @Override
     public Comparable getId() {
         return this.id;
     }
 
     @Override
-    public String getFecha() {
+    public short getFecha() {
         return this.fecha;
     }
 
     @Override
-    public void setRanking(String ranking) {
+    public void setRanking(float ranking) {
         this.ranking=ranking;
     }
 
@@ -79,7 +68,7 @@ public class Pelicula implements IPelicula {
     }
     
     @Override
-    public String getRanking(){
+    public float getRanking(){
         return this.ranking;
     }
             

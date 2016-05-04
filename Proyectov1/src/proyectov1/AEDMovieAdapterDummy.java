@@ -7,15 +7,13 @@ package proyectov1;
 
 /**
  *
- * @author Josse
+ * @author Magela
  */
 public class AEDMovieAdapterDummy implements IAEDMovieAdapter {
 
-    //Arrays sin tamano
+    //Arrays sin tama;o
     private IManejadorDePeliculas manejadorPeliculas;
-    
     private Actor[] actores;
-
     private ActorPelicula[] actoresPeliculas;
     ManejadorArchivosGenerico leoArchivo = new ManejadorArchivosGenerico();
 
@@ -25,7 +23,6 @@ public class AEDMovieAdapterDummy implements IAEDMovieAdapter {
     @Override
 
     public void cargarDatos() {
-
         obtenerPeliculas();
         obtenerActores();
         obtenerPeliculasActores();
@@ -65,23 +62,26 @@ public class AEDMovieAdapterDummy implements IAEDMovieAdapter {
         return manejadorPeliculas.buscarPorNombreLista(nombre);
     }
     @Override
-    public Lista<Pelicula>buscarPorFechaLista(String nombre, Lista<Pelicula> lista){
-        return manejadorPeliculas.buscarPorFechaLista(nombre,lista);
+    public Lista<Pelicula>buscarPorFechaLista(short fecha, Lista<Pelicula> lista){
+        return manejadorPeliculas.buscarPorFechaLista(fecha,lista);
     }
     
     @Override
-    public Lista<Pelicula>buscarPorRankingLista(String ranking, Lista<Pelicula> lista){
+    public Lista<Pelicula>buscarPorRankingLista(float ranking, Lista<Pelicula> lista){
         return manejadorPeliculas.buscarPorRankingLista(ranking, lista);
     }
     @Override
     public Lista<Pelicula> obtenerPeliculas() {
 
         String[] archivoPelicula;
-        archivoPelicula = leoArchivo.leerArchivo("src/proyectov1/Archivos/Small-Peliculas.txt", false);
+        archivoPelicula = leoArchivo.leerArchivo("src/proyectov1/Archivos/Small"
+                + "-Peliculas.txt", false);
         manejadorPeliculas = new ManejadorDePeliculas();
         for (int i = 0; i < archivoPelicula.length; i++) {
             String[] columnas = archivoPelicula[i].split("\\|");
-            Pelicula objPelicula = new Pelicula(Integer.parseInt(columnas[0]), columnas[1], columnas[2], columnas[3], columnas[4]);
+            Pelicula objPelicula = new Pelicula(Integer.parseInt(columnas[0]),
+                    columnas[1] , Short.parseShort(columnas[2]), 
+                    Float.parseFloat(columnas[3]), columnas[4]);
             manejadorPeliculas.insertarPelicula(objPelicula);
         }
         return manejadorPeliculas.getLista();
@@ -92,7 +92,8 @@ public class AEDMovieAdapterDummy implements IAEDMovieAdapter {
 
         String[] archivoActor;
 
-        archivoActor = leoArchivo.leerArchivo("src/proyectov1/Archivos/Small-Actores.txt", false);
+        archivoActor = leoArchivo.leerArchivo("src/proyectov1/Archivos/"
+                + "Small-Actores.txt", false);
         actores = new Actor[archivoActor.length];
 
         for (int i = 0; i < archivoActor.length; i++) {
@@ -132,19 +133,5 @@ public class AEDMovieAdapterDummy implements IAEDMovieAdapter {
         
         Pelicula peli = manejadorPeliculas.buscarPorNombre(nombre);
         return peli;
-        
-        /*datosPelicula = ""
-        for (int i = 0; i < this.peliculas.length; i++) {
-            if (this.peliculas[i].getNombre().equals(nombre)) {
-                pelicula = this.peliculas[i];
-            }
-        }
-        return pelicula;*/
     }
-
-    /**
-     * public String obtenerInfoPelicula(String nombrePelicula){ //todo: }
-     *
-     * private String getNombreActor(String idActor) { //todo: }
-     */
 }

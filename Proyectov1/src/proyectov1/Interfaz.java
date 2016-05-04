@@ -276,7 +276,13 @@ public class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonDeCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeCargarActionPerformed
-        aedMovieAdapter.cargarDatos();
+        try {
+            aedMovieAdapter.cargarDatos();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "¡Error al Cargar datos!");
+
+        }
+
         DefaultListModel model = new DefaultListModel();
         jListPeliculas.setModel(model);
         Lista<Pelicula> lista = aedMovieAdapter.getPeliculas(); // todas las peliculas
@@ -317,14 +323,18 @@ public class Interfaz extends javax.swing.JFrame {
         jTextAreaDerecha.removeAll();
         String nombreBuscar = jTextBuscarNombre.getText();
         String fechaBuscar = jTextBuscarFecha.getText();
-        short fechaShort = Short.parseShort(fechaBuscar); // validar esto que no vaya a explotar, debe tener 4 digitos con un catch se soluciona
         String rankingBuscar = jComboBuscarRanking.getSelectedItem().toString();
         Lista<Pelicula> buscar;
         DefaultListModel model = new DefaultListModel();
         jListPeliculas.setModel(model);
         try {
             buscar = aedMovieAdapter.buscarPorNombreLista(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;
-            buscar = aedMovieAdapter.buscarPorFechaLista(fechaShort, buscar);
+
+            if (!fechaBuscar.equals("")) {
+                short fechaShort = Short.parseShort(fechaBuscar); // validar esto que no vaya a explotar, debe tener 4 digitos con un catch se soluciona
+                buscar = aedMovieAdapter.buscarPorFechaLista(fechaShort, buscar);
+            }
+
             if (!rankingBuscar.equals("Todos")) {
                 String ran = String.valueOf(rankingBuscar.charAt(0));
                 float rankingB = Float.parseFloat(ran); // validas conversion sino esta mal ingresado
@@ -336,7 +346,6 @@ public class Interfaz extends javax.swing.JFrame {
             System.out.println("Pelicula No existe en el sistema o hay otro problema 2 ");
             JOptionPane.showMessageDialog(null, "Pelicula No existe en el sistema o hay otro problema");
         }
-        
     }//GEN-LAST:event_jButtonBuscarActionPerformed
     private void jTextFieldActorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldActorActionPerformed
         // TODO add your handling code here:
@@ -346,8 +355,8 @@ public class Interfaz extends javax.swing.JFrame {
         if (p != null) {
             jTextFieldNombre.setText(p.getNombre());
             jTextAreaDerecha.setText(p.toText());
-        //  String nombre =p.getNombre();
-           }
+            //  String nombre =p.getNombre();
+        }
     }
 
     /**

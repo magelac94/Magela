@@ -187,9 +187,9 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
 
     }
 
-    @Override 
-    public Lista<Pelicula> buscarPorNombreLista(String nombreBuscar, Lista<Pelicula> listaDondeBuscar){
-    if (nombreBuscar != null) {
+    @Override
+    public Lista<Pelicula> buscarPorNombreLista(String nombreBuscar, Lista<Pelicula> listaDondeBuscar) {
+        if (nombreBuscar != null) {
             IManejadorDePeliculas buscopeli = new ManejadorDePeliculas(); // creo una listita para las peliculas encontradas
 
             INodo<Pelicula> aux = listaDondeBuscar.getPrimero();
@@ -203,7 +203,7 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
                 aux = aux.getSiguiente();
             }
             return buscopeli.getLista();
-        }else{
+        } else {
             return listaDondeBuscar;
         }
 
@@ -211,7 +211,7 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
 
     @Override
     public Lista<Pelicula> buscarPorFechaLista(String fechaBuscar, Lista<Pelicula> listaDondeBuscar) {
-        System.out.println("Fecha Buscar: "+fechaBuscar);
+        System.out.println("Fecha Buscar: " + fechaBuscar);
         if (fechaBuscar != null) {
             IManejadorDePeliculas buscopeli = new ManejadorDePeliculas(); // creo una listita para las peliculas encontradas
 
@@ -226,34 +226,34 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
                 aux = aux.getSiguiente();
             }
             return buscopeli.getLista();
-        }else{
+        } else {
             return listaDondeBuscar;
         }
 
     }
+
     @Override
     public Lista<Pelicula> buscarPorRankingLista(String rankingBuscar, Lista<Pelicula> listaDondeBuscar) {
-        System.out.println("Ranking Buscar:"+rankingBuscar);
-        
-            IManejadorDePeliculas buscopeli = new ManejadorDePeliculas(); // creo una listita para las peliculas encontradas
 
-            INodo<Pelicula> aux = listaDondeBuscar.getPrimero();
+        IManejadorDePeliculas buscopeli = new ManejadorDePeliculas(); // creo una listita para las peliculas encontradas
 
-            while (aux != null) {
-                
-                int numeroRanking = aux.getDato().getRanking().charAt(0);
-              
-                System.out.println("NUMERO RANKING BUSCAR>>"+numeroRanking);
-                if (numeroRanking == Integer.parseInt(rankingBuscar)) {
-                    
-                    buscopeli.insertarPelicula(aux.getDato());
-                }
-                aux = aux.getSiguiente();
+        INodo<Pelicula> aux = listaDondeBuscar.getPrimero();
+
+        float rBuscar = Float.parseFloat(rankingBuscar); // es el numero que ingreso solito
+        float pRanking; 
+        while (aux != null) {
+            pRanking = Float.parseFloat(aux.getDato().getRanking()); // el numero verdadero del ranking
+             
+            if (pRanking >= rBuscar && pRanking < (rBuscar+1)){
+                System.out.println("Ranking de la Pelicula a COmparar"+pRanking);
+                buscopeli.insertarPelicula(aux.getDato());
             }
-            return buscopeli.getLista();
-        
+            aux = aux.getSiguiente();
+        }
+        return buscopeli.getLista();
+
     }
-    
+
     // Auxiliares.contieneA(nombre, aux.getDato().getNombre())
     /**
      * Retorna el tama�o del almacen: cantidad de productos. No es lo mismo que

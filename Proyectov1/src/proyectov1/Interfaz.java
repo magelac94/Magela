@@ -300,10 +300,16 @@ public class Interfaz extends javax.swing.JFrame {
             buscar = aedMovieAdapter.buscarPorFechaLista(fechaBuscar, buscar);
             
             if (! rankingBuscar.equals("Todos"))  {
+            
                 String ran = String.valueOf(rankingBuscar.charAt(0));
-                System.out.println("EN el medio de RANKING");
+                System.out.println("Ranking a Buscar:::"+ran);
+                
                 buscar = aedMovieAdapter.buscarPorRankingLista(ran , buscar);
-                System.out.println("DESPUES DE RANKING");                    
+                
+                
+         
+                
+                              
             }
             //     if (buscar != null) {
                    CargarPanelIzquiero(model, buscar);
@@ -314,7 +320,6 @@ public class Interfaz extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Pelicula No existe en el sistema o hay otro problema");
 
         }
-
 
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 

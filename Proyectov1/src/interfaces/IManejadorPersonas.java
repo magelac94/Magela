@@ -12,11 +12,11 @@ import proyectov1.Persona;
  *
  * @author Magela
  */
-public interface IManejadorDePersonas{
+public interface IManejadorPersonas{
     
     public Lista<Persona> getLista();
     public void insertarPersona(Persona unaPersona);
-    public IPersona buscarPorCodigo(Comparable codigo);
+    public Persona buscarPorCodigo(Comparable codigo);
  
     
     public Persona buscarPorNombre(String nombre);

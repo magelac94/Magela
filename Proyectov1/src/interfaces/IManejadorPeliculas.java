@@ -3,7 +3,7 @@ package interfaces;
 import proyectov1.Lista;
 import proyectov1.Pelicula;
 
-public interface IManejadorDePeliculas {
+public interface IManejadorPeliculas {
 
     
     public Lista<Pelicula> getLista();
@@ -47,7 +47,7 @@ public interface IManejadorDePeliculas {
      * @return
      */
    
-    public IPelicula buscarPorCodigo(Comparable codigo);
+    public Pelicula buscarPorCodigo(Comparable codigo);
 
     /**
      * Listar todos los productos registrados, ordenados por nombre, presentando

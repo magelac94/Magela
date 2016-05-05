@@ -5,19 +5,19 @@
  */
 package proyectov1;
 
-import interfaces.IManejadorDePersonas;
 import interfaces.INodo;
 import interfaces.IPersona;
+import interfaces.IManejadorPersonas;
 
 /**
  *
  * @author Magela
  */
-public class ManejadorDePersonas implements IManejadorDePersonas {
+public class ManejadorPersonas implements IManejadorPersonas {
 
     private Lista<Persona> listaPersonas;
 
-    ManejadorDePersonas() {
+    ManejadorPersonas() {
         listaPersonas = new Lista();
     }
 
@@ -33,12 +33,12 @@ public class ManejadorDePersonas implements IManejadorDePersonas {
     }
 
     @Override
-    public IPersona buscarPorCodigo(Comparable codigo) {
+    public Persona buscarPorCodigo(Comparable codigo) {
         INodo<Persona> nodoConPersona = this.listaPersonas.buscar(codigo);
         if (nodoConPersona == null) { //verifica que no sea null
             return null;
         }
-        IPersona producto = nodoConPersona.getDato();
+        Persona producto = nodoConPersona.getDato();
         return producto;
 
     }
@@ -60,7 +60,7 @@ public class ManejadorDePersonas implements IManejadorDePersonas {
     @Override
     public Lista<Persona> buscarPorNombreLista(String nombreBuscar) {
         if (nombreBuscar != null) {
-            IManejadorDePersonas buscoPersona = new ManejadorDePersonas(); // creo una listita para las peliculas encontradas
+            IManejadorPersonas buscoPersona = new ManejadorPersonas(); // creo una listita para las peliculas encontradas
 
             INodo<Persona> aux = listaPersonas.getPrimero();
 
@@ -82,7 +82,7 @@ public class ManejadorDePersonas implements IManejadorDePersonas {
     @Override
     public Lista<Persona> buscarPorNombreLista(String nombreBuscar, Lista<Persona> listaDondeBuscar) {
         if (nombreBuscar != null) {
-            IManejadorDePersonas buscoPersona = new ManejadorDePersonas(); // creo una listita para las peliculas encontradas
+            IManejadorPersonas buscoPersona = new ManejadorPersonas(); // creo una listita para las peliculas encontradas
 
             INodo<Persona> aux = listaDondeBuscar.getPrimero();
 

@@ -11,17 +11,19 @@ import interfaces.IPersona;
  *
  * @author Magela
  */
-public class Director implements IPersona{
+public class Director extends Persona{
     
-    final Comparable idDirector ;
+   /* final Comparable idDirector ;
     String nomDirector;
-    
+   */ 
     public Director(Comparable idActor, String nomActor)
     {
-        this.idDirector=idActor;
-        this.nomDirector=nomActor;
+        super(idActor,nomActor);
+        /*this.idDirector=idActor;
+        this.nomDirector=nomActor;*/
     }
-    @Override
+    
+    /*@Override
     public Comparable getId(){
         return this.idDirector;
     }
@@ -29,5 +31,5 @@ public class Director implements IPersona{
     @Override    
     public String getNombre(){
         return this.nomDirector;
-    }
+    }*/
 }

@@ -29,6 +29,10 @@ public class Pelicula implements IPelicula {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.ranking = ranking;
+        
+        actores = new Lista();
+        productores = new Lista();
+        directores = new Lista();
     }
 
     public String toText() {
@@ -40,7 +44,7 @@ public class Pelicula implements IPelicula {
         return texto;
 
     }
-
+    
     @Override
     public Comparable getId() {
         return this.id;
@@ -85,6 +89,7 @@ public class Pelicula implements IPelicula {
     public void agregarActor(Comparable idActor) {
         Nodo<Comparable> nuevoNodo = new Nodo<>(idActor, idActor);
         this.actores.insertar(nuevoNodo);
+
     }
 
     public void agregarProductor(Comparable idProductor) {

@@ -31,11 +31,10 @@ public class Interfaz extends javax.swing.JFrame {
     public Interfaz() {
         aedMovieAdapter = new AEDMovieAdapterDummy();
         this.setTitle("PopOut");
-        aedMovieAdapter.cargarDatos();
        // DefaultListModel model = new DefaultListModel();
-      
         cargarEstrenos();
         initComponents();
+        aedMovieAdapter.cargarDatos();
     }
 
     /**
@@ -333,7 +332,6 @@ public class Interfaz extends javax.swing.JFrame {
     private void CargarPanelIzquiero(DefaultListModel panel, Lista lista) {
         INodo<Pelicula> aux = lista.getPrimero();
         while (aux != null) {
-            System.out.println("ESTOY AQUI ?");
             //jListPeliculas.setModel(model);
             panel.addElement(aux.getDato().getNombre());
             aux = aux.getSiguiente();
@@ -397,7 +395,10 @@ public class Interfaz extends javax.swing.JFrame {
     private void CargarPanelDerecho(Pelicula p) {
         if (p != null) {
             jTextFieldNombre.setText(p.getNombre());
-            jTextAreaDerecha.setText(p.toText());
+            jTextAreaDerecha.setText(p.toText() + "\n Actors: " +aedMovieAdapter.actoresToText(p) );
+            System.out.println("Actores: **************"+aedMovieAdapter.actoresToText(p));
+            System.out.println("Productores:"+aedMovieAdapter.productoresToText(p));
+            System.out.println("Directores:"+aedMovieAdapter.directoresToText(p));
             //  String nombre =p.getNombre();
         }
     }

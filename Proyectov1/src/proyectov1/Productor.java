@@ -5,27 +5,29 @@
  */
 package proyectov1;
 
-import interfaces.IPersona;
+
 
 /**
  *
  * @author Magela
  */
-public class Productor implements IPersona{
-    final Comparable idProductor ;
-    String nomProductor;
+public class Productor extends Persona{
+    /*final Comparable idProductor ;
+    String nomProductor;*/
     
     public Productor(Comparable idActor, String nomActor)
     {
+        super(idActor,nomActor);/*
+        
         this.idProductor=idActor;
-        this.nomProductor=nomActor;
+        this.nomProductor=nomActor;*/
     }
-    @Override
+    /*@Override
     public Comparable getId(){
         return this.idProductor;
     }
     @Override    
     public String getNombre(){
         return this.nomProductor;
-    }
+    }*/
 }

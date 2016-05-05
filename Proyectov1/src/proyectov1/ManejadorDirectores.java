@@ -9,19 +9,8 @@ package proyectov1;
  *
  * @author Magela
  */
-public class ManejadorActores extends ManejadorPersonas {
-    
-    ManejadorActores() {
+public class ManejadorDirectores extends ManejadorPersonas {
+    ManejadorDirectores() {
         super();
     }
-    
-    
-    
-    
-        
-
-    
-    
-    
 }
-

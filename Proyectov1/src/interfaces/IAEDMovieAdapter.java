@@ -18,12 +18,14 @@ import proyectov1.Pelicula;
 public interface IAEDMovieAdapter {
     void cargarDatos();
     
+   
+    
     Lista<Pelicula> obtenerPeliculas();
-    Lista<Actor> obtenerActores();
-    Lista<ActorPelicula> obtenerPeliculasActores();
+    Lista<Persona> obtenerActores();
+    void obtenerPeliculasActores();
     Lista<Pelicula> getPeliculas();
     Pelicula getPelicula(String nombre);
-    IManejadorDePeliculas getManejador();
+    IManejadorPeliculas getManejador();
     Lista<Actor> getActores();
     Lista<Pelicula>buscarPorFechaLista(short fecha, Lista<Pelicula> lista);
     Lista<Pelicula>buscarPorRankingLista(float ranking, Lista<Pelicula> lista);
@@ -31,6 +33,10 @@ public interface IAEDMovieAdapter {
     Pelicula buscarPorNombre(String nombre);
     Lista<Pelicula> buscarPorNombreLista(String nombre);
     Lista<Pelicula> buscarPorFechaLista(short fecha);
+    String actoresToText(Pelicula p);
+    String productoresToText(Pelicula p);
+    String directoresToText(Pelicula p);
+ 
 
         
 }

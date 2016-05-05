@@ -275,4 +275,46 @@ public class ManejadorDePeliculas implements IManejadorDePeliculas {
     public int cantidadPeliculas() {
         return this.listaPeliculas.cantElementos();
     }
+    
+    public Lista<Pelicula> peliculasQueContieneActor(Comparable unActor){
+        IManejadorDePeliculas manejaPeliculas = new ManejadorDePeliculas();
+        INodo<Pelicula> aux = listaPeliculas.getPrimero();
+        while (aux != null) {
+            if (aux.getDato().existeActor(unActor)){
+                manejaPeliculas.insertarPelicula(aux.getDato());
+            }
+            aux = aux.getSiguiente();
+        }
+        return manejaPeliculas.getLista();
+
+    }
+    public Lista<Pelicula> peliculasQueContieneProductor(Comparable unProductor){
+        IManejadorDePeliculas manejaPeliculas = new ManejadorDePeliculas();
+        INodo<Pelicula> aux = listaPeliculas.getPrimero();
+        while (aux != null) {
+            if (aux.getDato().existeProductor(unProductor)){
+                manejaPeliculas.insertarPelicula(aux.getDato());
+            }
+            aux = aux.getSiguiente();
+        }
+        return manejaPeliculas.getLista();
+
+    }
+    
+    public Lista<Pelicula> peliculasQueContieneDirector(Comparable unDirector){
+        IManejadorDePeliculas manejaPeliculas = new ManejadorDePeliculas();
+        INodo<Pelicula> aux = listaPeliculas.getPrimero();
+        while (aux != null) {
+            if (aux.getDato().existeDirector(unDirector)){
+                manejaPeliculas.insertarPelicula(aux.getDato());
+            }
+            aux = aux.getSiguiente();
+        }
+        return manejaPeliculas.getLista();
+
+    }
+    
+   
+    
+  
 }

@@ -11,17 +11,16 @@ import interfaces.IPersona;
  *
  * @author Magela
  */
-public class Actor implements IPersona {
+public class Actor extends Persona {
     
-    final Comparable idActor ;
+ /*   final Comparable idActor ;
     String nomActor;
-    
+ */   
     public Actor(Comparable idActor, String nomActor)
     {
-        this.idActor=idActor;
-        this.nomActor=nomActor;
+        super(idActor,nomActor);
     }
-    @Override
+ /*   @Override
     public Comparable getId(){
         return this.idActor;
     }
@@ -29,5 +28,5 @@ public class Actor implements IPersona {
     public String getNombre(){
         return this.nomActor;
     }
-    
+    */
 }

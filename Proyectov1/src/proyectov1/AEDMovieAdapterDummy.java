@@ -8,6 +8,7 @@ package proyectov1;
 import auxiliares.ManejadorArchivosGenerico;
 import interfaces.IManejadorDePeliculas;
 import interfaces.IAEDMovieAdapter;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -81,15 +82,21 @@ public class AEDMovieAdapterDummy implements IAEDMovieAdapter {
     public Lista<Pelicula> obtenerPeliculas() {
 
         String[] archivoPelicula;
-        archivoPelicula = leoArchivo.leerArchivo("src/proyectov1/Archivos/Small"
-                + "-Peliculas.txt", false);
+        archivoPelicula = leoArchivo.leerArchivo("src/proyectov1/Archivos/Big-Peliculas.csv", false);
         manejadorPeliculas = new ManejadorDePeliculas();
         for (int i = 0; i < archivoPelicula.length; i++) {
+            
+            try{
             String[] columnas = archivoPelicula[i].split("\\|");
             Pelicula objPelicula = new Pelicula(Integer.parseInt(columnas[0]),
                     columnas[1] , Short.parseShort(columnas[2]), 
                     Float.parseFloat(columnas[3]), columnas[4]);
-            manejadorPeliculas.insertarPelicula(objPelicula);
+                    manejadorPeliculas.insertarPelicula(objPelicula);
+            }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "¡Error en Formato de Archivo!\n Pelicula No Ingresada: " + archivoPelicula[i]);
+                    System.out.println("¡Error en Formato de Archivo!\n Pelicula No Ingresada: ");
+            }
+            
         }
         return manejadorPeliculas.getLista();
     }

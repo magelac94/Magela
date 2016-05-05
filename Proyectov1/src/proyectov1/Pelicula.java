@@ -5,6 +5,7 @@
  */
 package proyectov1;
 
+import interfaces.INodo;
 import interfaces.IPelicula;
 
 /**
@@ -18,7 +19,9 @@ public class Pelicula implements IPelicula {
     private short fecha;
     private float ranking;
     private String descripcion;
-    
+    private Lista<Comparable> actores;
+    private Lista<Comparable> productores;
+    private Lista<Comparable> directores;
 
     public Pelicula(Comparable id, String nombre, short fecha, float ranking, String descripcion) {
         this.id = id;
@@ -28,16 +31,16 @@ public class Pelicula implements IPelicula {
         this.ranking = ranking;
     }
 
-    public String toText(){
-        String texto =  "\n\nYear: " + this.fecha + 
-                        "\nRanking: "+ this.ranking + " Estrellas" + 
-                        "\n\nDescription: "+this.descripcion; //+
-                  //      "\nActores:" + obtenerActores() +
-                  //      "\nDirectores: "+ obtenerDirectores();
+    public String toText() {
+        String texto = "\n\nYear: " + this.fecha
+                + "\nRanking: " + this.ranking + " Estrellas"
+                + "\n\nDescription: " + this.descripcion; //+
+        //      "\nActores:" + obtenerActores() +
+        //      "\nDirectores: "+ obtenerDirectores();
         return texto;
-    
+
     }
-    
+
     @Override
     public Comparable getId() {
         return this.id;
@@ -50,13 +53,13 @@ public class Pelicula implements IPelicula {
 
     @Override
     public void setRanking(float ranking) {
-        this.ranking=ranking;
+        this.ranking = ranking;
     }
 
     @Override
     public String getDescripcion() {
         return this.descripcion;
-        
+
     }
 
     @Override
@@ -68,17 +71,78 @@ public class Pelicula implements IPelicula {
     public String getNombre() {
         return this.nombre;
     }
-    
+
     @Override
-    public float getRanking(){
+    public float getRanking() {
         return this.ranking;
     }
-            
 
     @Override
     public void setNombre(String nombre) {
-        this.nombre=nombre;
+        this.nombre = nombre;
+    }
+
+    public void agregarActor(Comparable idActor) {
+        Nodo<Comparable> nuevoNodo = new Nodo<>(idActor, idActor);
+        this.actores.insertar(nuevoNodo);
+    }
+
+    public void agregarProductor(Comparable idProductor) {
+        Nodo<Comparable> nuevoNodo = new Nodo<>(idProductor, idProductor);
+        this.productores.insertar(nuevoNodo);
+    }
+
+    public void agregarDirector(Comparable idDirector) {
+        Nodo<Comparable> nuevoNodo = new Nodo<>(idDirector, idDirector);
+        this.directores.insertar(nuevoNodo);
+    }
+
+    public Lista<Comparable> getListaActores() {
+        return this.actores;
+    }
+
+    public Lista<Comparable> getListaProductores() {
+        return this.productores;
+    }
+
+    public Lista<Comparable> getListaDirectores() {
+        return this.directores;
+    }
+
+    public boolean existeActor(Comparable idActor) {
+        INodo<Comparable> aux = actores.getPrimero();
+        while (aux != null) {
+            if (aux.getEtiqueta() == idActor){
+                return true;
+            }
+            aux = aux.getSiguiente();
+        }
+        return false;
+
     }
     
+    public boolean existeProductor(Comparable idProductor) {
+        INodo<Comparable> aux = productores.getPrimero();
+        while (aux != null) {
+            if (aux.getEtiqueta() == idProductor){
+                return true;
+            }
+            aux = aux.getSiguiente();
+        }
+        return false;
+
+    }
+    
+    public boolean existeDirector(Comparable idDirectores) {
+        INodo<Comparable> aux = directores.getPrimero();
+        while (aux != null) {
+            if (aux.getEtiqueta() == idDirectores){
+                return true;
+            }
+            aux = aux.getSiguiente();
+        }
+        return false;
+
+    }
 
 }

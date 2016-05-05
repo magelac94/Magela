@@ -32,9 +32,9 @@ public class Interfaz extends javax.swing.JFrame {
         aedMovieAdapter = new AEDMovieAdapterDummy();
         this.setTitle("PopOut");
        // DefaultListModel model = new DefaultListModel();
-        cargarEstrenos();
+    //    cargarEstrenos();
         initComponents();
-        aedMovieAdapter.cargarDatos();
+      //  aedMovieAdapter.cargarDatos();
     }
 
     /**
@@ -151,6 +151,7 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
         jLabel7.setText("Actor/Director");
 
+        jTextAreaDerecha.setEditable(false);
         jTextAreaDerecha.setColumns(20);
         jTextAreaDerecha.setFont(new java.awt.Font("Trebuchet MS", 0, 13)); // NOI18N
         jTextAreaDerecha.setLineWrap(true);
@@ -158,6 +159,7 @@ public class Interfaz extends javax.swing.JFrame {
         jTextAreaDerecha.setName(""); // NOI18N
         jScrollPane2.setViewportView(jTextAreaDerecha);
 
+        jTextFieldNombre.setEditable(false);
         jTextFieldNombre.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -395,10 +397,12 @@ public class Interfaz extends javax.swing.JFrame {
     private void CargarPanelDerecho(Pelicula p) {
         if (p != null) {
             jTextFieldNombre.setText(p.getNombre());
-            jTextAreaDerecha.setText(p.toText() + "\n Actors: " +aedMovieAdapter.actoresToText(p) );
-            System.out.println("Actores: **************"+aedMovieAdapter.actoresToText(p));
-            System.out.println("Productores:"+aedMovieAdapter.productoresToText(p));
-            System.out.println("Directores:"+aedMovieAdapter.directoresToText(p));
+            String str = aedMovieAdapter.actoresToText(p);
+            jTextAreaDerecha.setText(p.toText() + "\n\n Actors: " + str );
+            System.out.println(str);
+         //   System.out.println("Actores: **************"+aedMovieAdapter.actoresToText(p));
+        //    System.out.println("Productores:"+aedMovieAdapter.productoresToText(p));
+        //    System.out.println("Directores:"+aedMovieAdapter.directoresToText(p));
             //  String nombre =p.getNombre();
         }
     }

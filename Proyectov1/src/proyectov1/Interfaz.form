@@ -348,6 +348,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="jTextAreaDerecha">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="13" style="0"/>
@@ -361,6 +362,7 @@
         </Container>
         <Component class="javax.swing.JTextField" name="jTextFieldNombre">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Trebuchet MS" size="18" style="1"/>
             </Property>

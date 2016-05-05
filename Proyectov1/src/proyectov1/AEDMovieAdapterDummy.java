@@ -187,7 +187,7 @@ public class AEDMovieAdapterDummy implements IAEDMovieAdapter {
     @Override
         public String actoresToText(Pelicula p) {
         Lista<Comparable> lista = p.getListaActores();
-        lista.imprimir();
+     //   lista.imprimir();
         INodo<Comparable> aux = lista.getPrimero();
         String str = "";
         while (aux != null) {

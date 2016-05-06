@@ -8,12 +8,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Magela
+ */
 public class ManejadorArchivosGenerico {
 
     /**
-     * @param nombreCompletoArchivo
+     * @param nombreCompletoArchivo nombre del archivo a escribir
      * @param listaLineasArchivo lista con las lineas del archivo
-     * @throws IOException
      */
     public static void escribirArchivo(String nombreCompletoArchivo,
             String[] listaLineasArchivo) {
@@ -35,6 +38,12 @@ public class ManejadorArchivosGenerico {
         }
     }
     
+    /**
+     *
+     * @param nombreCompletoArchivo nombre del archivo a leer.
+     * @param ignoreHeader  true si el archivoo tiene cabecera, false si no.
+     * @return Retorna un array con las lineas del archivo
+     */
     public static String[] leerArchivo(String nombreCompletoArchivo, boolean ignoreHeader) {
         FileReader fr;
         ArrayList<String> listaLineasArchivo = new ArrayList<String>();
@@ -60,8 +69,8 @@ public class ManejadorArchivosGenerico {
                     + nombreCompletoArchivo);
             e.printStackTrace();
         }
-//		System.out.println("Archivo leido satisfactoriamente");
-
+		System.out.println("Archivo leido satisfactoriamente");
+                
         return listaLineasArchivo.toArray(new String[0]);
     }
 }

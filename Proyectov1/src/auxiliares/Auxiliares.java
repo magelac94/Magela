@@ -6,35 +6,9 @@
 package auxiliares;
 
 /**sys
- *
- * @author DC-C04
+ *  Funciones Auxiliares utiles independientes al resto del programa.
+ *  
+ * @author Magela
  */
 public class Auxiliares {
-
-    // Le paso un string para buscar en otro String
-    
-/*
-    public static String quitarSimbolos(String str) {
-        char[] aCaracteres = str.toCharArray();
-        for (int i = 0; i < str.length(); i++) {
-            if (isSymbol(aCaracteres[i])) {
-                aCaracteres[i] = ' ';
-            }
-        }
-        str = String.valueOf(aCaracteres);
-
-        return str;
-    }
-
-    public static boolean isSymbol(char a) {
-        char symbolos[] = {',', '.', '-', ';', ':'};
-        for (int i = 0; i < symbolos.length; i++) {
-            if (symbolos[i] == a) {
-                return true;
-            }
-
-        }
-        return false;
-    } */
-
 }

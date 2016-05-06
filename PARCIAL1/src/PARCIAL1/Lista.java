@@ -1,4 +1,4 @@
-package PARCIAL0;
+package PARCIAL1;
 
 public class Lista<E> implements ILista<E> {
 
@@ -114,7 +114,6 @@ public class Lista<E> implements ILista<E> {
         return contador;
     }
 
-    @Override
     public boolean esVacia() {
         return primero == null;
     }
@@ -122,49 +121,15 @@ public class Lista<E> implements ILista<E> {
     public INodo<E> getPrimero() {
         return primero;
     }
+    
 
-    @Override
     public void Ordenar() {
-        // Para la lista auxiliar ordenada
-        Lista<E> auxiliar = new Lista();
-        INodo<E> recorre;
-        recorre = primero.getSiguiente();
-        System.out.println("Etiqueta de el que recorre " + recorre.getEtiqueta());
-        // Para el Primer caso 
-        auxiliar.insertar(quitarPrimero());
-        while (recorre != null) {
-            // System.out.println("PARCIAL0.Lista.Ordenar() ANTES");
-            System.out.println("Etiqueta de el que recorre " + recorre.getEtiqueta());
-            recorre = recorre.getSiguiente(); 
-            auxiliar.insertarOrdenado(quitarPrimero());  
-        }
-        primero = auxiliar.primero;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void insertarOrdenado(INodo<E> unNodo) {
-        if (esVacia()) {
-            primero = unNodo;
-        } else {
-            INodo<E> aux = primero;
-            if (aux.getSiguiente() != null) {
-                while (aux.getSiguiente().getEtiqueta().compareTo(unNodo.getEtiqueta()) < 0) {
-                    aux = aux.getSiguiente();
-                }
-
-                unNodo.setSiguiente(aux.getSiguiente());
-                aux.setSiguiente(unNodo);
-
-            } else {
-                aux.setSiguiente(unNodo);
-            }
-
-        }
-    }
-
-    @Override
     public INodo<E> quitarPrimero() {
         INodo tempNodo = getPrimero();
-        if (tempNodo != null) {
+        if (tempNodo != null){
             this.primero = tempNodo.getSiguiente();
             tempNodo.setSiguiente(null);
         }

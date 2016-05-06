@@ -6,7 +6,6 @@
 package proyectov1;
 
 import interfaces.INodo;
-import interfaces.IAEDMovieAdapter;
 import java.util.Calendar;
 import java.util.Date;
 import proyectov1.*;
@@ -15,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 import javax.swing.event.ListDataListener;
 import javax.swing.plaf.basic.BasicListUI;
+import interfaces.IAdaptadorInterfazManejadores;
 
 /**
  *
@@ -22,13 +22,13 @@ import javax.swing.plaf.basic.BasicListUI;
  */
 public class Interfaz extends javax.swing.JFrame {
 
-    IAEDMovieAdapter aedMovieAdapter;
+    IAdaptadorInterfazManejadores aedMovieAdapter;
 
     /**
      * Creates new form AEDIMovieFrame
      */
     public Interfaz() {
-        aedMovieAdapter = new AEDMovieAdapterDummy();
+        aedMovieAdapter = new AdaptadorInterfazManejadores();
         this.setTitle("PopOut");
         // DefaultListModel model = new DefaultListModel();
         //    cargarEstrenos();

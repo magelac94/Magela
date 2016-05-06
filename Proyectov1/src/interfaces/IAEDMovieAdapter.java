@@ -36,7 +36,11 @@ public interface IAEDMovieAdapter {
     String actoresToText(Pelicula p);
     String productoresToText(Pelicula p);
     String directoresToText(Pelicula p);
- 
+    Lista<Pelicula> buscarPorGeneroLista(String unGenero, Lista<Pelicula> lista);
+    Lista<Pelicula> buscarPorActorLista(String nombreActor, Lista<Pelicula> lista);
+    Lista<Pelicula> buscarPorProductorLista(String nombreProductor, Lista<Pelicula> lista);
+    Lista<Pelicula> buscarPorDirectorLista(String nombreDirector, Lista<Pelicula> lista);
+
 
         
 }

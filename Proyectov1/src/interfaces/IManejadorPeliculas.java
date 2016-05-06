@@ -74,7 +74,10 @@ public interface IManejadorPeliculas {
     public Lista<Pelicula> buscarPorFechaLista(short fechaBuscar, Lista<Pelicula> listaDondeBuscar) ;
     public Lista<Pelicula> buscarPorRankingLista(float rankingBuscar, Lista<Pelicula> listaDondeBuscar);
     public Lista<Pelicula> buscarPorFechaLista(short fechaBuscar) ;
-
+    public Lista<Pelicula> buscarPorGeneroLista(String nombreGenero, Lista<Pelicula> listaDondeBuscar); 
+    public Lista<Pelicula> buscarPorActorLista(Comparable nombreGenero, Lista<Pelicula> listaDondeBuscar); 
+    public Lista<Pelicula> buscarPorProductorLista(String nombreGenero, Lista<Pelicula> listaDondeBuscar); 
+    public Lista<Pelicula> buscarPorDirectorLista(String nombreGenero, Lista<Pelicula> listaDondeBuscar); 
     /**
      * Retorna el tama�o del almacen: cantidad de productos. No es lo mismo que
      * el total de stock, sino que ser�a en definitiva el tama�o de la lista.

@@ -18,17 +18,19 @@ public class Pelicula implements IPelicula {
     private String nombre;
     private short fecha;
     private float ranking;
+    private String genero;
     private String descripcion;
     private Lista<Comparable> actores;
     private Lista<Comparable> productores;
     private Lista<Comparable> directores;
 
-    public Pelicula(Comparable id, String nombre, short fecha, float ranking, String descripcion) {
+    public Pelicula(Comparable id, String nombre, short fecha, float ranking, String descripcion, String genero) {
         this.id = id;
         this.fecha = fecha;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.ranking = ranking;
+        this.genero = genero;
         
         actores = new Lista();
         productores = new Lista();
@@ -37,10 +39,9 @@ public class Pelicula implements IPelicula {
 
     public String toText() {
         String texto = "\n\nYear: " + this.fecha
-                + "\nRanking: " + this.ranking + " Estrellas"
-                + "\n\nDescription: " + this.descripcion; //+
-        //      "\nActores:" + obtenerActores() +
-        //      "\nDirectores: "+ obtenerDirectores();
+                + "\nGenres:    " + this.genero
+                + "\nRanking:   " + this.ranking + " Estrellas"
+                + "\n\nDescription: " + this.descripcion;
         return texto;
 
     }
@@ -81,6 +82,9 @@ public class Pelicula implements IPelicula {
         return this.ranking;
     }
 
+    public String getGenero(){
+        return this.genero;
+    }
     @Override
     public void setNombre(String nombre) {
         this.nombre = nombre;

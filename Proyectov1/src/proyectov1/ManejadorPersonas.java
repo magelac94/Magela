@@ -60,7 +60,7 @@ public class ManejadorPersonas implements IManejadorPersonas {
     @Override
     public Lista<Persona> buscarPorNombreLista(String nombreBuscar) {
         if (nombreBuscar != null) {
-            IManejadorPersonas buscoPersona = new ManejadorPersonas(); // creo una listita para las peliculas encontradas
+            IManejadorPersonas buscoPersona = new ManejadorPersonas();
 
             INodo<Persona> aux = listaPersonas.getPrimero();
 

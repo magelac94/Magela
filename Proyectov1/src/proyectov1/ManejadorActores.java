@@ -18,6 +18,8 @@ public class ManejadorActores extends ManejadorPersonas {
     
     
     
+    
+    
         
 
     

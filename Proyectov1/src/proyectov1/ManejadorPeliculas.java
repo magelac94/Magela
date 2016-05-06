@@ -6,7 +6,6 @@
 package proyectov1;
 
 import interfaces.INodo;
-import interfaces.IPelicula;
 import interfaces.IManejadorPeliculas;
 
 /**
@@ -102,8 +101,8 @@ public class ManejadorPeliculas implements IManejadorPeliculas {
         if (nodoConPelicula == null) { //verifica que no sea null
             return null;
         }
-        Pelicula producto = nodoConPelicula.getDato();
-        return producto;
+        Pelicula peliculaEncontrada = nodoConPelicula.getDato();
+        return peliculaEncontrada;
     }
 
     /**
@@ -201,6 +200,28 @@ public class ManejadorPeliculas implements IManejadorPeliculas {
         }
 
     }
+    @Override
+    public Lista<Pelicula> buscarPorGeneroLista(String nombreGenero, Lista<Pelicula> listaDondeBuscar) {
+        if (nombreGenero != null) {
+            IManejadorPeliculas buscopeli = new ManejadorPeliculas(); // creo una listita para las peliculas encontradas
+
+            INodo<Pelicula> aux = listaDondeBuscar.getPrimero();
+
+            while (aux != null) {
+                int estoyNoestoy = aux.getDato().getGenero().toUpperCase().indexOf(nombreGenero.toUpperCase());
+
+                if (estoyNoestoy != -1) {
+                    buscopeli.insertarPelicula(aux.getDato());
+                }
+                aux = aux.getSiguiente();
+            }
+            return buscopeli.getLista();
+        } else {
+            return listaDondeBuscar;
+        }
+
+    }
+    
 
     @Override
     public Lista<Pelicula> buscarPorFechaLista(short fechaBuscar, Lista<Pelicula> listaDondeBuscar) {
@@ -274,6 +295,68 @@ public class ManejadorPeliculas implements IManejadorPeliculas {
     @Override
     public int cantidadPeliculas() {
         return this.listaPeliculas.cantElementos();
+    }
+    
+    @Override
+    public Lista<Pelicula> buscarPorActorLista(Comparable idActor, Lista<Pelicula> lista){
+        IManejadorPeliculas manejaPeliculas = new ManejadorPeliculas();
+        INodo<Pelicula> aux = lista.getPrimero();
+        while (aux != null) {
+            
+            if (aux.getDato().existeActor(idActor)){
+                manejaPeliculas.insertarPelicula(aux.getDato());
+            }
+            aux = aux.getSiguiente();
+        }
+        return manejaPeliculas.getLista();
+    }
+    
+       /*        int estoyNoestoy = aux.getDato().getNombre().toUpperCase().indexOf(nombreBuscar.toUpperCase());
+
+                if (estoyNoestoy != -1) {
+                    buscopeli.insertarPelicula(aux.getDato());
+                }
+                aux = aux.getSiguiente();
+            }
+            return buscopeli.getLista();
+        } else {
+            return listaDondeBuscar;
+        }
+    */
+    
+    public Lista<Pelicula> buscarPorProductorLista(String nombreProductor, Lista<Pelicula> lista){
+        IManejadorPeliculas manejaPeliculas = new ManejadorPeliculas();
+        INodo<Pelicula> aux = lista.getPrimero();
+        while (aux != null) {
+            if (aux.getDato().existeActor(nombreProductor)){
+                manejaPeliculas.insertarPelicula(aux.getDato());
+            }
+            aux = aux.getSiguiente();
+        }
+        return manejaPeliculas.getLista();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public Lista<Pelicula> buscarPorDirectorLista(String nombreDirector, Lista<Pelicula> lista){
+        IManejadorPeliculas manejaPeliculas = new ManejadorPeliculas();
+        INodo<Pelicula> aux = lista.getPrimero();
+        while (aux != null) {
+            if (aux.getDato().existeActor(nombreDirector)){
+                manejaPeliculas.insertarPelicula(aux.getDato());
+            }
+            aux = aux.getSiguiente();
+        }
+        return manejaPeliculas.getLista();
     }
     
     public Lista<Pelicula> peliculasQueContieneActor(Comparable unActor){

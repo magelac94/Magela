@@ -12,25 +12,7 @@ package auxiliares;
 public class Auxiliares {
 
     // Le paso un string para buscar en otro String
-    public static boolean contieneA(String palabraABuscar, String stringDondeBusco) {
-
-        System.out.println("Palabra a buscar:" + palabraABuscar);
-        System.out.println("String Inicial:" + stringDondeBusco);
-
-      //  stringDondeBusco = quitarSimbolos(stringDondeBusco);
-        System.out.println("String sin Simbolos:" + stringDondeBusco);
-
-        String[] palabrasSeparadas = stringDondeBusco.split(" ");
-        System.out.println("Palabras Separadas:" + palabrasSeparadas);
-
-    /*    for (int i = 0; i < palabrasSeparadas.length; i++) {
-            if (palabrasSeparadas[i].equals(palabraABuscar)) {
-                
-                return true;
-            }
-        }*/
-        return false;
-    }
+    
 /*
     public static String quitarSimbolos(String str) {
         char[] aCaracteres = str.toCharArray();

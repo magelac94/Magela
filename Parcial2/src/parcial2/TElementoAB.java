@@ -419,17 +419,28 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
         return x + y + Integer.valueOf(this.etiqueta.toString());
     }
-    
+
     @Override
-    public boolean esBusqueda (){
-        if (hijoIzq == null && hijoDer == null){
+    public boolean esBusqueda() {
+        if (hijoIzq == null && hijoDer == null) {
             return true;
         }
-        if (hijoIzq != null){
-            if( hijoIzq.getEtiqueta().compareTo(this.getEtiqueta())>0){
+        if (hijoIzq != null) {
+            if (hijoIzq.getEtiqueta().compareTo(this.getEtiqueta()) > 0) {
                 hijoIzq.esBusqueda();
+            } else {
+                return false;
+            }
         }
-        }
-    }
+        if (hijoDer != null) {
+            if (hijoDer.getEtiqueta().compareTo(this.getEtiqueta()) > 0) {
+                hijoDer.esBusqueda();
+            } else {
+                return false;
+            }
 
+        }
+        return true;
+
+    }
 }

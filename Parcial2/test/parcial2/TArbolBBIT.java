@@ -342,5 +342,21 @@ public class TArbolBBIT {
         assertEquals(expResult, result);
         
     }
+
+    /**
+     * Test of esBusqueda method, of class TArbolBB.
+     */
+    @Test
+    public void testEsBusqueda() {
+        System.out.println("esBusqueda");
+        TArbolBB instance = new TArbolBB();
+        instance.insertar(new TElementoAB(1, null));
+        instance.insertar(new TElementoAB(2, null));
+        instance.insertar(new TElementoAB(3, null));
+        boolean expResult = true;
+        boolean result = instance.esBusqueda();
+        assertEquals(expResult, result);
+    
+    }
     
 }

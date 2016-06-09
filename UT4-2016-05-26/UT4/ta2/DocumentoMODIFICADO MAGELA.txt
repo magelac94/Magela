@@ -1,0 +1,105 @@
+main
+System.out.println("------------------------------------------------");
+        System.out.print("TAMAÑO: " + arbol.obtenerTamanio());
+      //  System.out.print("CANTIDAD DE HOJAS: "+ arbol.cantidadDeHojas );
+        System.out.print("ALTURA: "+ arbol.obtenerAltura());
+  //      System.out.println("NIVEL: " + arbol.obtenerNivel()
+     //   System.out.print("CANTIDAD DE NODOS EN NIVEL 2: "+arbol.contarNivel(2) );
+
+
+TArbolBB.java
+@Override
+    public int obtenerAltura() {
+        if (raiz != null) {
+            return raiz.obtenerAltura();
+        } else {
+            return -1;
+        }
+    }
+
+
+@Override
+    public int obtenerTamanio() {
+        if (raiz == null) {
+            return 0;
+        } else {
+            return raiz.obtenerTamanio();
+            //((TElementoArbolBB) raiz).obtenerTamanio();
+        }
+    }
+
+
+@Override
+    public int obtenerNivel(Comparable unaEtiqueta) {
+        if (raiz != null) {
+            return raiz.obtenerNivel(unaEtiqueta);
+        } else {
+            return -1;
+        }
+
+    }
+
+@Override
+    public int obtenerCantidadHojas() {
+        if (raiz != null) {
+            return raiz.obtenerCantidadHojas();
+        } //raiz.obtenerCantidadHojas(raiz);
+        else {
+            return -1;
+        }
+    }
+
+
+TElementoArbolBB.java
+@Override
+    public int obtenerAltura() {
+        int alturaIzquierdo = -1;
+        int alturaDerecho = -1;
+        if (this.hijoIzq != null) {
+            alturaIzquierdo = hijoIzq.obtenerAltura();
+        }
+        if (this.hijoDer != null) {
+            alturaDerecho = hijoDer.obtenerAltura();
+        }
+        return Math.max(alturaIzquierdo, alturaDerecho) + 1;
+
+    }
+
+
+
+@Override
+    public int obtenerTamanio() {
+        int tamanioIzquierdo = 0;
+        int tamanioDerecho = 0;
+        if (hijoIzq != null) {
+            tamanioIzquierdo += hijoIzq.obtenerTamanio();
+        }
+        if (hijoDer != null) {
+            tamanioDerecho += hijoDer.obtenerTamanio();
+        }
+        return tamanioIzquierdo + tamanioDerecho + 1;
+    }
+
+
+@Override
+    public int obtenerNivel(Comparable unaEtiqueta) {
+        int nivelIzquierdo = -1;
+        int nivelDerecho = -1;
+        if (this.etiqueta.compareTo(unaEtiqueta) == 0) {
+            return 0;
+        }
+        if (this.hijoIzq != null) {
+            nivelIzquierdo = this.hijoIzq.obtenerNivel(unaEtiqueta);
+        }
+        if (this.hijoDer != null) {
+            nivelDerecho = this.hijoDer.obtenerNivel(unaEtiqueta);
+        }
+        if (nivelIzquierdo > -1) {
+            return nivelIzquierdo + 1;
+        }
+        if (nivelDerecho > -1) {
+            return nivelDerecho + 1;
+        }
+        return -1;
+
+    }

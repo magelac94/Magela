@@ -1,0 +1,13 @@
+Grupo 3
+
+1.-Crear TArbolBB y TElementoArbolBB de acuerdo a las interfaces publicadas	
+	Para los métodos de las recorridas, en el inorden no preguntan si la raiz es null. Si intentan hacer el inorden de un árbol explotará por null pointer exception.
+
+2.-Obtener la altura y tamaño	
+---
+3.-Obtener la cantidad de hojas e indicar en qué nivel se encuentra
+--
+4.-Clase JUNIT y otras funcs.
+	No está implementado
+
+

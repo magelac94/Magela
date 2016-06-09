@@ -326,5 +326,21 @@ public class TArbolBBIT {
         int result = instance.sumarNodosInternos();
         assertEquals(expResult, result);
     }
+
+    /**
+     * Test of sumaEtiquetas method, of class TArbolBB.
+     */
+    @Test
+    public void testSumaEtiquetas() {
+        System.out.println("sumaEtiquetas");
+        TArbolBB instance = new TArbolBB();
+        instance.insertar(new TElementoAB(1, null));
+        instance.insertar(new TElementoAB(2, null));
+        instance.insertar(new TElementoAB(3, null));
+        int expResult = 6;
+        int result = instance.sumaEtiquetas();
+        assertEquals(expResult, result);
+        
+    }
     
 }

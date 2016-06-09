@@ -117,55 +117,75 @@ public class TArbolBB<T> implements IArbolBB<T> {
         }
         return 0;
     }
-    
-    public String listarHojas(){
-        if (raiz != null){
+
+    public String listarHojas() {
+        if (raiz != null) {
             return raiz.listarHojas();
         }
         return "0";
     }
-    
-    public IElementoAB minimo(){
-        if (raiz != null){
+
+    public IElementoAB minimo() {
+        if (raiz != null) {
             return raiz.minimo();
         }
         return null;
     }
-    
-    public IElementoAB maximo(){
-        if (raiz!= null){
+
+    public IElementoAB maximo() {
+        if (raiz != null) {
             return raiz.maximo();
-        }   return null;
+        }
+        return null;
     }
-    
-    public IElementoAB lexicoAnterior(Comparable unaClave){
-        if (raiz != null){
+
+    public IElementoAB lexicoAnterior(Comparable unaClave) {
+        if (raiz != null) {
             return raiz.lexicoAnterior(unaClave);
-        }   return null;
+        }
+        return null;
     }
-    
-    public int sumarClavesNivel(int n){
-        if (raiz != null){
+
+    public int sumarClavesNivel(int n) {
+        if (raiz != null) {
             return raiz.sumarClavesNivel(n);
-        }   return -1;
+        }
+        return -1;
+    }
+
+    public int sumarClavesHojas() {
+        if (raiz != null) {
+            return raiz.sumarClavesHojas();
+        }
+        return 0;
+    }
+
+    public int contarNodosInternos() {
+        if (raiz != null) {
+            return raiz.contarNodosInternos();
+        }
+        return 0;
+    }
+
+    public int sumarNodosInternos() {
+        if (raiz != null) {
+            return raiz.sumarNodosInternos();
+        }
+        return 0;
+
+    }
+
+    public int sumaEtiquetas() {
+        if (raiz != null) {
+            return raiz.sumaEtiquetas();
+        }
+        return 0;
     }
     
-       public int sumarClavesHojas() {
-           if (raiz != null){
-               return raiz.sumarClavesHojas();
-           }    return 0;
-       }
-       
-       public int contarNodosInternos(){
-           if (raiz != null){
-               return raiz.contarNodosInternos();
-           }    return 0;
-       }
-        public int sumarNodosInternos(){
-            if (raiz != null){
-                return raiz.sumarNodosInternos();
-            }   return 0;
-           
-       }
+    public boolean esBusqueda(){
+        if (raiz != null){
+            return raiz.esBusqueda();
+        }   return true;
+    }
 
 }

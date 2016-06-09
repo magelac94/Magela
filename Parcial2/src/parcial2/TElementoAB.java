@@ -415,9 +415,21 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
         if (hijoDer != null) {
             y = y + hijoDer.sumaEtiquetas();
-            
+
         }
-        return x + y;
+        return x + y + Integer.valueOf(this.etiqueta.toString());
     }
-}
+    
+    @Override
+    public boolean esBusqueda (){
+        if (hijoIzq == null && hijoDer == null){
+            return true;
+        }
+        if (hijoIzq != null){
+            if( hijoIzq.getEtiqueta().compareTo(this.getEtiqueta())>0){
+                hijoIzq.esBusqueda();
+        }
+        }
+    }
+
 }

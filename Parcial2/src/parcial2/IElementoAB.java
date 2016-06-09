@@ -112,4 +112,9 @@ public interface IElementoAB<T> {
     public int contarNodosInternos();
 
     public int sumarNodosInternos();
+
+    public int sumaEtiquetas();
+    
+    public boolean esBusqueda();
+
 }

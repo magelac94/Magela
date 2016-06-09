@@ -318,7 +318,8 @@ public class TElementoAB<T> implements IElementoAB<T> {
 
     @Override
     public IElementoAB lexicoAnterior(Comparable unaClave) {
-       /* if (this.etiqueta.compareTo(unaClave) == 0) {
+
+        /* if (this.etiqueta.compareTo(unaClave) == 0) {
             return null;
         }*/
         if (unaClave.compareTo(hijoIzq.getEtiqueta()) < 0) {
@@ -327,10 +328,96 @@ public class TElementoAB<T> implements IElementoAB<T> {
         if (unaClave.compareTo(hijoIzq.getEtiqueta()) > 0) {
             return hijoDer.lexicoAnterior(unaClave);
         }
-        if (unaClave.compareTo(hijoIzq.getEtiqueta()) == 0 || 
-                (unaClave.compareTo(hijoDer.getEtiqueta()) == 0)) {
+        if (unaClave.compareTo(hijoIzq.getEtiqueta()) == 0
+                || (unaClave.compareTo(hijoDer.getEtiqueta()) == 0)) {
             return this;
         }
         return null;
     }
+
+    @Override
+    public int sumarClavesNivel(int n) {
+        if (n == 0) {
+            return Integer.valueOf(this.etiqueta.toString());
+        } else {
+            int x = 0;
+            int y = 0;
+            if (this.hijoIzq != null) {
+                x = this.hijoIzq.sumarClavesNivel(n - 1);
+            }
+            if (this.hijoDer != null) {
+                y = this.hijoDer.sumarClavesNivel(n - 1);
+            }
+
+            return x + y;
+        }
+
+    }
+
+    @Override
+    public int sumarClavesHojas() {
+        int hojasIzq = 0;
+        int hojasDer = 0;
+
+        if (hijoIzq != null) {
+            hojasIzq = hijoIzq.sumarClavesHojas();
+        }
+
+        if (hijoDer != null) {
+            hojasDer = hijoDer.sumarClavesHojas();
+        }
+        if (hijoIzq == null && hijoDer == null) {
+            return Integer.valueOf(this.etiqueta.toString());
+        }
+
+        return hojasIzq + hojasDer;
+    }
+
+    @Override
+    public int contarNodosInternos() {
+        int x = 0;
+        int y = 0;
+        if (hijoIzq == null && hijoDer == null) {
+            return 0;
+        }
+        if (hijoIzq != null) {
+            x = hijoIzq.contarNodosInternos();
+        }
+        if (hijoDer != null) {
+            y = hijoDer.contarNodosInternos();
+        }
+        return x + y + 1;
+    }
+
+    @Override
+    public int sumarNodosInternos() {
+        int x = 0;
+        int y = 0;
+        if (hijoIzq == null && hijoDer == null) {
+            return 0;
+        }
+        if (hijoIzq != null) {
+            x = hijoIzq.sumarNodosInternos();
+        }
+        if (hijoDer != null) {
+            y = hijoDer.sumarNodosInternos();
+        }
+        return x + y + Integer.valueOf(this.etiqueta.toString());
+    }
+
+    @Override
+    public int sumaEtiquetas() {
+        int x = 0;
+        int y = 0;
+
+        if (hijoIzq != null) {
+            x = x + hijoIzq.sumaEtiquetas();
+        }
+        if (hijoDer != null) {
+            y = y + hijoDer.sumaEtiquetas();
+            
+        }
+        return x + y;
+    }
+}
 }

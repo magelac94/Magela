@@ -143,5 +143,29 @@ public class TArbolBB<T> implements IArbolBB<T> {
             return raiz.lexicoAnterior(unaClave);
         }   return null;
     }
+    
+    public int sumarClavesNivel(int n){
+        if (raiz != null){
+            return raiz.sumarClavesNivel(n);
+        }   return -1;
+    }
+    
+       public int sumarClavesHojas() {
+           if (raiz != null){
+               return raiz.sumarClavesHojas();
+           }    return 0;
+       }
+       
+       public int contarNodosInternos(){
+           if (raiz != null){
+               return raiz.contarNodosInternos();
+           }    return 0;
+       }
+        public int sumarNodosInternos(){
+            if (raiz != null){
+                return raiz.sumarNodosInternos();
+            }   return 0;
+           
+       }
 
 }

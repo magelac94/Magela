@@ -263,5 +263,68 @@ public class TArbolBBIT {
         assertEquals(expResult, result);
         
     }
+
+    /**
+     * Test of sumarClavesNivel method, of class TArbolBB.
+     */
+    @Test
+    public void testSumarClavesNivel() {
+        System.out.println("sumarClavesNivel");
+        int n = 1;
+        TArbolBB instance = new TArbolBB();
+        instance.insertar(new TElementoAB(1, null));
+        instance.insertar(new TElementoAB(2, null));
+        instance.insertar(new TElementoAB(3, null));
+        int expResult = 2;
+        int result = instance.sumarClavesNivel(n);
+        assertEquals(expResult, result);
+        
+    }
+
+    /**
+     * Test of sumarClavesHojas method, of class TArbolBB.
+     */
+    @Test
+    public void testSumarClavesHojas() {
+        System.out.println("sumarClavesHojas");
+        TArbolBB instance = new TArbolBB();
+        instance.insertar(new TElementoAB(1, null));
+        instance.insertar(new TElementoAB(2, null));
+        instance.insertar(new TElementoAB(3, null));
+        int expResult = 3;
+        int result = instance.sumarClavesHojas();
+        assertEquals(expResult, result);
+        
+    }
+
+    /**
+     * Test of contarNodosInternos method, of class TArbolBB.
+     */
+    @Test
+    public void testContarNodosInternos() {
+        System.out.println("contarNodosInternos");
+        TArbolBB instance = new TArbolBB();
+         instance.insertar(new TElementoAB(1, null));
+        instance.insertar(new TElementoAB(2, null));
+        instance.insertar(new TElementoAB(3, null));
+        int expResult = 2;
+        int result = instance.contarNodosInternos();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of sumarNodosInternos method, of class TArbolBB.
+     */
+    @Test
+    public void testSumarNodosInternos() {
+        System.out.println("sumarNodosInternos");
+        TArbolBB instance = new TArbolBB();
+         instance.insertar(new TElementoAB(1, null));
+        instance.insertar(new TElementoAB(2, null));
+        instance.insertar(new TElementoAB(3, null));
+        int expResult = 3;
+        int result = instance.sumarNodosInternos();
+        assertEquals(expResult, result);
+    }
     
 }

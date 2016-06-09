@@ -1,7 +1,5 @@
 package parcial2;
 
-
-
 public interface IElementoAB<T> {
 
     /**
@@ -47,8 +45,6 @@ public interface IElementoAB<T> {
      */
     public IElementoAB buscar(Comparable unaEtiqueta);
 
- 
-
     /**
      * Inserta un elemento dentro del arbol.
      *
@@ -84,21 +80,36 @@ public interface IElementoAB<T> {
      * @return
      */
     public T getDatos();
-    
+
     /**
      * Elimina un elemento dada una etiqueta.
+     *
      * @param unaEtiqueta
-     * @return 
+     * @return
      */
     public IElementoAB eliminar(Comparable unaEtiqueta);
-    
-    
+
     public int altura();
+
     public int tamanio();
+
     public int niveles(Comparable et);
+
     public int cantidadHojas();
+
     public String listarHojas();
+
     public IElementoAB minimo();
+
     public IElementoAB maximo();
+
     public IElementoAB lexicoAnterior(Comparable unaClave);
+
+    public int sumarClavesNivel(int n);
+
+    public int sumarClavesHojas();
+
+    public int contarNodosInternos();
+
+    public int sumarNodosInternos();
 }

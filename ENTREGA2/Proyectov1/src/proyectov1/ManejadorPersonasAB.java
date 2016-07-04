@@ -18,7 +18,7 @@ public class ManejadorPersonasAB implements IManejadorPersonasAB {
     ManejadorPersonasAB() {
         arbolPersonas = new TArbolBB();
     }
-
+/*
     @Override
     public TArbolBB getArbol() {
         return arbolPersonas;
@@ -40,7 +40,7 @@ public class ManejadorPersonasAB implements IManejadorPersonasAB {
         return producto;
 
     }
-/*
+
     @Override
     public Persona buscarPorNombre(String nombre) {
         
@@ -97,14 +97,14 @@ public class ManejadorPersonasAB implements IManejadorPersonasAB {
             return listaDondeBuscar;
         }
     }
-*/
+
 
     @Override
     public int cantidadPersonas() {
         return this.arbolPersonas.cantElementos();
     }
     
-    
+    */
         
 
 }

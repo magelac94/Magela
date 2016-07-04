@@ -288,64 +288,67 @@ public class ManejadorPeliculas implements IManejadorPeliculas {
     @Override
     public Lista<Pelicula> buscaMultiple(String nombreBuscar,short fechaShort2,float rankingBuscar,String generoBuscar){
      
-            IManejadorPeliculas resultadoPelicualasEncontradas = new ManejadorPeliculas(); 
-            INodo<Pelicula> aux = listaPeliculas.getPrimero();
-            
-            int existeNombre = -1;
-            int existeFecha = -1;
-            int existeRanking = -1;
-            int existeGenero = -1;
-            
-            short fechaPelicula = aux.getDato().getFecha();         
-            float pRanking = aux.getDato().getRanking(); // el numero verdadero del ranking
+        IManejadorPeliculas resultadoPelicualasEncontradas = new ManejadorPeliculas();
+        INodo<Pelicula> aux = listaPeliculas.getPrimero();
 
-            while (aux != null) {  
-                if (nombreBuscar != null) {
-                    // Si es distinto de -1 es que existe
-                    existeNombre = aux.getDato().getNombre().toUpperCase().indexOf(nombreBuscar.toUpperCase()); 
-                    if (existeNombre != -1){
-                        existeNombre = 1;
-                    }
-                }else {
+        int existeNombre = -1;
+        int existeFecha = -1;
+        int existeRanking = -1;
+        int existeGenero = -1;
+
+        short fechaPelicula = aux.getDato().getFecha();
+        float pRanking = aux.getDato().getRanking(); // el numero verdadero del ranking
+
+        while (aux != null) {
+            if (nombreBuscar != null) {
+                // Si es distinto de -1 es que existe
+                existeNombre = aux.getDato().getNombre().toUpperCase().indexOf(nombreBuscar.toUpperCase());
+                if (existeNombre != -1) {
                     existeNombre = 1;
+                } else {
+                    existeNombre = -1;
                 }
-                
-                    if (fechaShort2 != 0){
-                        if (fechaPelicula == fechaShort2) {
-                            existeFecha = 1;
-                        }else{
-                            existeFecha =-1;
-                        }
-                    }else{
-                        existeFecha = 1;
-                    }
-            
-                if (rankingBuscar != 0.0){
-                    if(pRanking >= rankingBuscar && pRanking < (rankingBuscar + 1)){
-                        existeRanking = 1;
-                    }else{
-                        existeRanking = -1;
-                    }
-                }else{
-                    existeRanking = 1;
-                }
-                               
-                if (generoBuscar != null) {
-                    existeGenero = aux.getDato().getGenero().toUpperCase().indexOf(generoBuscar.toUpperCase());
-                    if (existeGenero != -1){
-                        existeGenero = 1;
-                    }
-                }else{
-                    existeGenero = 1;
-                }
-            
-                if (existeNombre == 1 && existeFecha == 1 && existeRanking ==1 && existeGenero == 1){
-                    resultadoPelicualasEncontradas.insertarPelicula(aux.getDato());
-                }               
-          
-                aux = aux.getSiguiente();
+            } else {
+                existeNombre = 1;
             }
-            return resultadoPelicualasEncontradas.getLista();  
+
+            if (fechaShort2 != 0) {
+                if (fechaPelicula == fechaShort2) {
+                    existeFecha = 1;
+                } else {
+                    existeFecha = -1;
+                }
+            } else {
+                existeFecha = 1;
+            }
+
+            if (rankingBuscar != 0.0) {
+                if (pRanking >= rankingBuscar && pRanking < (rankingBuscar + 1)) {
+                    existeRanking = 1;
+                } else {
+                    existeRanking = -1;
+                }
+            } else {
+                existeRanking = 1;
+            }
+
+            if (generoBuscar != null) {
+                existeGenero = aux.getDato().getGenero().toUpperCase().indexOf(generoBuscar.toUpperCase());
+                if (existeGenero != -1) {
+                    existeGenero = 1;
+                } else {
+                    existeGenero = -1;
+                }
+            } else {
+                existeGenero = 1;
+            }
+
+            if (existeNombre == 1 && existeFecha == 1 && existeRanking == 1 && existeGenero == 1) {
+                resultadoPelicualasEncontradas.insertarPelicula(aux.getDato());
+            }
+            aux = aux.getSiguiente();
+        }
+        return resultadoPelicualasEncontradas.getLista();
     }
     
     

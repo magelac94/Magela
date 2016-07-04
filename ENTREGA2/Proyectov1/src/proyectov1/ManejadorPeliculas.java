@@ -63,29 +63,30 @@ public class ManejadorPeliculas implements IManejadorPeliculas {
     }
 
     /**
-     * Agregar stock a un producto existente.
-     *
-     * @param clave
-     * @param cantidad
-     * @return
+     * 
+     * @param nombreBuscar
+     * @param fechaShort2
+     * @param rankingBuscar
+     * @param generoBuscar
+     * @return 
      */
-    
-    
     @Override
     public Lista<Pelicula> buscaMultiple(String nombreBuscar,short fechaShort2,float rankingBuscar,String generoBuscar){
      
-        IManejadorPeliculas resultadoPelicualasEncontradas = new ManejadorPeliculas();
+        ManejadorPeliculas resultadoPelicualasEncontradas = new ManejadorPeliculas();
         INodo<Pelicula> aux = listaPeliculas.getPrimero();
 
-        int existeNombre = -1;
-        int existeFecha = -1;
-        int existeRanking = -1;
-        int existeGenero = -1;
+        int existeNombre;
+        int existeFecha;
+        int existeRanking;
+        int existeGenero;
 
-        short fechaPelicula = aux.getDato().getFecha();
-        float pRanking = aux.getDato().getRanking(); // el numero verdadero del ranking
-
+        
         while (aux != null) {
+
+            short fechaPelicula = aux.getDato().getFecha();
+            float pRanking = aux.getDato().getRanking(); // el numero verdadero del ranking
+
             if (nombreBuscar != null) {
                 // Si es distinto de -1 es que existe
                 existeNombre = aux.getDato().getNombre().toUpperCase().indexOf(nombreBuscar.toUpperCase());
@@ -98,11 +99,13 @@ public class ManejadorPeliculas implements IManejadorPeliculas {
                 existeNombre = 1;
             }
 
+
             if (fechaShort2 != 0) {
-                if (fechaPelicula == fechaShort2) {
-                    existeFecha = 1;
-                } else {
+               
+                if (fechaPelicula != fechaShort2) {
                     existeFecha = -1;
+                } else {
+                    existeFecha = 1;
                 }
             } else {
                 existeFecha = 1;
@@ -129,16 +132,15 @@ public class ManejadorPeliculas implements IManejadorPeliculas {
             } else {
                 existeGenero = 1;
             }
+            
             if (existeNombre == 1 && existeFecha == 1 && existeRanking == 1 && existeGenero == 1) {
                 resultadoPelicualasEncontradas.insertarPelicula(aux.getDato());
             }
             aux = aux.getSiguiente();
         }
-        if (resultadoPelicualasEncontradas != null) {
-            return resultadoPelicualasEncontradas.getLista();
-        } else {
-            return null;
-        }
+
+        return resultadoPelicualasEncontradas.getLista();
+
     }
     
     @Override
@@ -232,25 +234,7 @@ public class ManejadorPeliculas implements IManejadorPeliculas {
         return this.listaPeliculas.cantElementos();
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     /**
      * Listar todos los productos registrados, ordenados por nombre, presentando
      * adem�s su stock. Imprime por consola la lista de todos los productos

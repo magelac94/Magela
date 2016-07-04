@@ -94,6 +94,17 @@ public interface IAdaptadorInterfazManejadores {
      * @return 
      */
     Lista<Pelicula> buscaMultiple(String nombreBuscar,short fechaShort2,float rankingB2,String generoBuscar);
+    
+   /**
+    * 
+    * @param nombreBuscar
+    * @param fechaShort2
+    * @param rankingB2
+    * @param generoBuscar
+    * @param idActor
+    * @return 
+    */
+    Lista<Pelicula> buscaMultipleConActor(String nombreBuscar,short fechaShort2,float rankingB2,String generoBuscar,Comparable idActor);
     /**
      * NO lo utilizo
      *

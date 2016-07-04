@@ -18,7 +18,7 @@ import interfaces.IAdaptadorInterfazManejadores;
 public class AdaptadorInterfazManejadores implements IAdaptadorInterfazManejadores {
 
     //Arrays sin tama;o
-    private IManejadorPeliculas manejadorPeliculas; // para las lineas del documentoq
+    private ManejadorPeliculas manejadorPeliculas; // para las lineas del documentoq
     //  private Actor[] actores;  // para las lineas del documento
     //  private ActorPelicula[] actoresPeliculas; // para las lineas del documento
     private ManejadorArchivosGenerico leoArchivo = new ManejadorArchivosGenerico();
@@ -105,6 +105,11 @@ public class AdaptadorInterfazManejadores implements IAdaptadorInterfazManejador
     }
     
     @Override
+    public Lista<Pelicula> buscaMultipleConActor(String nombreBuscar,short fechaShort2,float rankingB2,String generoBuscar,Comparable idActor){
+       return manejadorPeliculas.buscaMultipleConActor(nombreBuscar,fechaShort2,rankingB2,generoBuscar,idActor);
+    }
+    
+    @Override
     public Lista<Pelicula> buscarPorActorLista(String nombreActor, Lista<Pelicula> listaDondeBuscar) {
         if (nombreActor != null) { // se complico hacerlo en actores....... tengo que cambiarlo despues
             
@@ -152,8 +157,7 @@ public class AdaptadorInterfazManejadores implements IAdaptadorInterfazManejador
     @Override
     public Lista<Pelicula> obtenerPeliculas() {
         String[] archivoPelicula;
-        archivoPelicula = leoArchivo.leerArchivo("src/proyectov1/Archivos/Big-Peliculas.csv", false);
-        //   manejadorPeliculas = new ManejadorPeliculas();
+        archivoPelicula = leoArchivo.leerArchivo("src/proyectov1/Archivos/Smallv2-Peliculas.csv", false);
         for (int i = 0; i < archivoPelicula.length; i++) {
             try {
                 String[] columnas = archivoPelicula[i].split("\\|");
@@ -163,7 +167,6 @@ public class AdaptadorInterfazManejadores implements IAdaptadorInterfazManejador
                         columnas[5]);
                 manejadorPeliculas.insertarPelicula(objPelicula);
             } catch (Exception e) {
-                //            JOptionPane.showMessageDialog(null, "¡Error en Formato de Archivo!\n Pelicula No Ingresada: " + archivoPelicula[i]);
                 System.out.println("¡Error en Formato de Archivo!\n Pelicula No Ingresada: ");
             }
         }

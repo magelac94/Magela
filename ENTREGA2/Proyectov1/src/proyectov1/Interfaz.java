@@ -34,7 +34,7 @@ public class Interfaz extends javax.swing.JFrame {
         //    cargarEstrenos();
         initComponents();
         aedMovieAdapter.cargarDatos();
-       // cargarEstrenos();
+        cargarEstrenos();
     }
 
     /**
@@ -69,6 +69,7 @@ public class Interfaz extends javax.swing.JFrame {
         jTextAreaDerecha = new javax.swing.JTextArea();
         jTextFieldNombre = new javax.swing.JTextField();
         jComboBoxGenero = new javax.swing.JTextField();
+        fechaActorField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,7 +111,7 @@ public class Interfaz extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
-        jLabel1.setText("BUSCAR:");
+        jLabel1.setText("BUSCAR PELICULAS:");
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
         jLabel2.setText("Nombre");
@@ -167,23 +168,30 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
-                    .addComponent(jTextFieldNombre))
+                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2)
                 .addContainerGap())
         );
+
+        fechaActorField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaActorFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -204,18 +212,18 @@ public class Interfaz extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(102, 102, 102)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
                                 .addGap(98, 98, 98)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
                                 .addGap(52, 52, 52)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(16, 16, 16)
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextBuscarNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                .addComponent(jTextBuscarNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                                 .addGap(23, 23, 23)
-                                .addComponent(jTextBuscarFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                                .addComponent(jTextBuscarFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jComboBoxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(8, 8, 8)))
@@ -226,9 +234,11 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addGap(52, 52, 52)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(26, 26, 26))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextFieldActor, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(fechaActorField)
+                                    .addComponent(jTextFieldActor, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jComboBuscarRanking, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
@@ -252,28 +262,32 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
                     .addComponent(jTextBuscarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextBuscarFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBuscarRanking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBuscar)
                     .addComponent(jTextFieldActor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jComboBoxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
+                        .addGap(168, 168, 168)
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(7, 7, 7)
-                        .addComponent(jButtonDeCargar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addGap(11, 11, 11))))
+                        .addComponent(fechaActorField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(7, 7, 7)
+                                .addComponent(jButtonDeCargar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 47, Short.MAX_VALUE))))))
         );
 
         pack();
@@ -287,15 +301,21 @@ public class Interfaz extends javax.swing.JFrame {
         int fechita = fecha.get(Calendar.YEAR);
         short myshort = (short) fechita;
         short myshortMenosUno = (short) (fechita - 1);
-        Lista<Pelicula> estrenos = aedMovieAdapter.buscarPorFechaLista(myshort, aedMovieAdapter.getPeliculas());
-        if (estrenos == null) {
-            estrenos = aedMovieAdapter.buscarPorFechaLista(myshortMenosUno, aedMovieAdapter.getPeliculas());
+        Lista<Pelicula> estrenos;
+
+        try {
+            estrenos = aedMovieAdapter.buscaMultiple("", myshort, 0.0F, "");
+        } catch (Exception e) {
+
+            estrenos = aedMovieAdapter.buscaMultiple("", myshortMenosUno, 0.0F, "");
+
         }
+
         DefaultListModel model = new DefaultListModel();
         jListPeliculas.setModel(model);
         CargarPanelIzquiero(model, estrenos);
     }
-    
+
     private void jButtonDeCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeCargarActionPerformed
         try {
             aedMovieAdapter.cargarDatos();
@@ -349,25 +369,66 @@ public class Interfaz extends javax.swing.JFrame {
     private void jBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBuscarActionPerformed
         // Limpio campos 
         jTextAreaDerecha.removeAll();
-        
+
         // Cargo datos ingresados en variables
         String nombreBuscar = jTextBuscarNombre.getText();
         String fechaBuscar = jTextBuscarFecha.getText();
         String rankingBuscar = jComboBuscarRanking.getSelectedItem().toString();
         String generoBuscar = jComboBoxGenero.getText();
         String personaBuscar = jTextFieldActor.getText();
-        
-        // Se crea lista de peliculas
-        Lista<Pelicula> buscar;
-        Lista<Pelicula> buscar2;
-        DefaultListModel model = new DefaultListModel();
+        String fechaActor = fechaActorField.getText();
 
+        // Se crea lista de peliculas
+        Lista<Pelicula> peliculasEncontradas = new Lista();
+        short fechaShort ;
+        float rankingB = 0.0F;
+    //    Lista<Pelicula> buscar;
+    //    Lista<Pelicula> buscar2;
         
-        jListPeliculas.setModel(model);
-        
-        try {   // PRIMERO busco por nombre, si esta vacio devuelvo todo  
-            buscar = aedMovieAdapter.buscarPorNombreLista(nombreBuscar); // tendria que buscar en todas las peliculas y devolver una lista de peliculas encontradas;
-            // SEGUNDO busco por fecha, debe ser un numero de 4 digitos
+
+        // Validar los campos
+        try {
+            try {
+                if (fechaBuscar.length() == 4 || fechaBuscar.length() == 0) {
+                    if (fechaBuscar.length() == 0) {
+                        fechaShort = 0;
+                    } else {
+                        fechaShort = Short.parseShort(fechaBuscar);
+                    }
+                    if (!"Todos".equals(rankingBuscar)) {
+
+                        try {
+                            String ran = String.valueOf(rankingBuscar.charAt(0));
+                            rankingB = Float.parseFloat(ran);
+                        } catch (Exception exs) {
+                            JOptionPane.showMessageDialog(null, "Ranking de busqueda invalido");
+
+                        }
+                    }
+                    //Busqueda multiple sin actor
+                    if ("".equals(personaBuscar)) {
+                        peliculasEncontradas = aedMovieAdapter.buscaMultiple(nombreBuscar, fechaShort, rankingB, generoBuscar);
+                    } else {
+                    }
+
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Fecha ingresada no valida, debe tener 4 digitos");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Fecha ingresada no valida");
+            }
+
+            DefaultListModel model = new DefaultListModel();
+            jListPeliculas.setModel(model);
+            CargarPanelIzquiero(model, peliculasEncontradas);
+
+        } catch (Exception eg) {
+            JOptionPane.showMessageDialog(null, "Pelicula No encontrada");
+
+        }
+
+          /*
             if (!fechaBuscar.equals("")) {
                 short fechaShort = Short.parseShort(fechaBuscar); // validar esto que no vaya a explotar, debe tener 4 digitos con un catch se soluciona
                 buscar = aedMovieAdapter.buscarPorFechaLista(fechaShort, buscar);
@@ -387,23 +448,27 @@ public class Interfaz extends javax.swing.JFrame {
                 //    buscar = aedMovieAdapter.buscarPorDirectorLista(personaBuscar, buscar);
 
             }
-
-            short fechaShort2 = Short.parseShort(fechaBuscar); // validar esto que no vaya a explotar, debe tener 4 digitos con un catch se soluciona
+*/
+          /*  short fechaShort2 = Short.parseShort(fechaBuscar); // validar esto que no vaya a explotar, debe tener 4 digitos con un catch se soluciona
             String ran2 = String.valueOf(rankingBuscar.charAt(0));
             float rankingB2 = Float.parseFloat(ran2); // validas conversion sino esta mal ingresado, falta 10 estrellas
-            buscar2 = aedMovieAdapter.buscaMultiple(nombreBuscar,fechaShort2,rankingB2,generoBuscar);
-                    
-                    
+            buscar2 = aedMovieAdapter.buscaMultiple(nombreBuscar, fechaShort2, rankingB2, generoBuscar);
+
             CargarPanelIzquiero(model, buscar);
 
         } catch (Exception ex) {
             System.out.println("Pelicula No existe en el sistema o hay otro problema 2 ");
             JOptionPane.showMessageDialog(null, "Pelicula No existe en el sistema");
         }
+          */
     }//GEN-LAST:event_jBuscarActionPerformed
     private void jTextFieldActorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldActorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldActorActionPerformed
+
+    private void fechaActorFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActorFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaActorFieldActionPerformed
 
     private void CargarPanelDerecho(Pelicula p) {
         if (p != null) {
@@ -458,6 +523,7 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField fechaActorField;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jBuscar;
     private javax.swing.JButton jButtonDeCargar;

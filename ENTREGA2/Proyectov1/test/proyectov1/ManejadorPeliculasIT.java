@@ -78,252 +78,6 @@ public class ManejadorPeliculasIT {
     }
 
     /**
-     * Test of listarPeliculas method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testListarPeliculas() {
-        System.out.println("listarPeliculas");
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        String expResult = "";
-        String result = instance.listarPeliculas();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of listarSeparador method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testListarSeparador() {
-        System.out.println("listarSeparador");
-        String separador = "";
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        String expResult = "";
-        String result = instance.listarSeparador(separador);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of listarOrdenadoPorNombre method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testListarOrdenadoPorNombre() {
-        System.out.println("listarOrdenadoPorNombre");
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        instance.listarOrdenadoPorNombre();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of listarOrdenadoPorDescripcion method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testListarOrdenadoPorDescripcion() {
-        System.out.println("listarOrdenadoPorDescripcion");
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        instance.listarOrdenadoPorDescripcion();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of listarOrdenadoPorRanking method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testListarOrdenadoPorRanking() {
-        System.out.println("listarOrdenadoPorRanking");
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        instance.listarOrdenadoPorRanking();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of listarOrdenadoPorFecha method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testListarOrdenadoPorFecha() {
-        System.out.println("listarOrdenadoPorFecha");
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        instance.listarOrdenadoPorFecha();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of buscarPorCodigo method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testBuscarPorCodigo() {
-        System.out.println("buscarPorCodigo");
-        Comparable codigo = null;
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Pelicula expResult = null;
-        Pelicula result = instance.buscarPorCodigo(codigo);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of buscarPorDescripcion method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testBuscarPorDescripcion() {
-        System.out.println("buscarPorDescripcion");
-        String descripcion = "";
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Pelicula expResult = null;
-        Pelicula result = instance.buscarPorDescripcion(descripcion);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of buscarPorRanking method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testBuscarPorRanking() {
-        System.out.println("buscarPorRanking");
-        String ranking = "";
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Pelicula expResult = null;
-        Pelicula result = instance.buscarPorRanking(ranking);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of buscarPorFecha method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testBuscarPorFecha() {
-        System.out.println("buscarPorFecha");
-        short fecha = 0;
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Pelicula expResult = null;
-        Pelicula result = instance.buscarPorFecha(fecha);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of buscarPorNombre method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testBuscarPorNombre() {
-        System.out.println("buscarPorNombre");
-        String nombre = "";
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Pelicula expResult = null;
-        Pelicula result = instance.buscarPorNombre(nombre);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of buscarPorNombreLista method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testBuscarPorNombreLista_String() {
-        System.out.println("buscarPorNombreLista");
-        String nombreBuscar = "";
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Lista<Pelicula> expResult = null;
-        Lista<Pelicula> result = instance.buscarPorNombreLista(nombreBuscar);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of buscarPorNombreLista method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testBuscarPorNombreLista_String_Lista() {
-        System.out.println("buscarPorNombreLista");
-        String nombreBuscar = "";
-        Lista<Pelicula> listaDondeBuscar = null;
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Lista<Pelicula> expResult = null;
-        Lista<Pelicula> result = instance.buscarPorNombreLista(nombreBuscar, listaDondeBuscar);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of buscarPorGeneroLista method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testBuscarPorGeneroLista() {
-        System.out.println("buscarPorGeneroLista");
-        String nombreGenero = "";
-        Lista<Pelicula> listaDondeBuscar = null;
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Lista<Pelicula> expResult = null;
-        Lista<Pelicula> result = instance.buscarPorGeneroLista(nombreGenero, listaDondeBuscar);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of buscarPorFechaLista method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testBuscarPorFechaLista_short_Lista() {
-        System.out.println("buscarPorFechaLista");
-        short fechaBuscar = 0;
-        Lista<Pelicula> listaDondeBuscar = null;
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Lista<Pelicula> expResult = null;
-        Lista<Pelicula> result = instance.buscarPorFechaLista(fechaBuscar, listaDondeBuscar);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of buscarPorFechaLista method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testBuscarPorFechaLista_short() {
-        System.out.println("buscarPorFechaLista");
-        short fechaBuscar = 0;
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Lista<Pelicula> expResult = null;
-        Lista<Pelicula> result = instance.buscarPorFechaLista(fechaBuscar);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of buscarPorRankingLista method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testBuscarPorRankingLista() {
-        System.out.println("buscarPorRankingLista");
-        float rankingBuscar = 0.0F;
-        Lista<Pelicula> listaDondeBuscar = null;
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Lista<Pelicula> expResult = null;
-        Lista<Pelicula> result = instance.buscarPorRankingLista(rankingBuscar, listaDondeBuscar);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of buscaMultiple method, of class ManejadorPeliculas.
      */
     @Test
@@ -459,116 +213,110 @@ public class ManejadorPeliculasIT {
     }
 
     
-   
+
+    /**
+     * Test of buscaMultipleConActor method, of class ManejadorPeliculas.
+     */
+    @Test
+    public void testBuscaMultipleConActor() {
+        System.out.println("buscaMultipleConActor");
+        
+        //Se crea y agrega una pelicula
+        Comparable id1 = 1;
+        short fecha1 = 2013;
+        float ranking1 = 4.6F;
+        Pelicula pelicula1 = new Pelicula(id1, "Uno", fecha1, ranking1,"descripcion1", "accion");
+        
+        // Se crean 3 actores y se asocian a esa pelicula
+        Comparable idActor1 = 1;
+        String nombreActor1 = "Jhon";
+        String fechaNacimiento1 = "21/12/1990";
+        String lugarNacimiento1 = "Alaska";
+        String biografia1 = "bla bla bla";
+        Persona unaPersona1 = new Actor(idActor1,nombreActor1,fechaNacimiento1,lugarNacimiento1,biografia1);
+        
+        Comparable idActor2 = 2;
+        String nombreActor2 = "Maria";
+        String fechaNacimiento2 = "21/2/1990";
+        String lugarNacimiento2 = "Marruecos";
+        String biografia2 = "bla bla bla";
+        Persona unaPersona2 = new Actor(idActor2,nombreActor2,fechaNacimiento2,lugarNacimiento2,biografia2);
+        
+        Comparable idActor3 = 3;
+        String nombreActor3 = "Jose";
+        String fechaNacimiento3 = "1/12/1990";
+        String lugarNacimiento3 = "Brazil";
+        String biografia3 = "bla bla bla";
+        Persona unaPersona3 = new Actor(idActor3,nombreActor3,fechaNacimiento3,lugarNacimiento3,biografia3);
+        
+        pelicula1.agregarActor(unaPersona1.getId());
+        pelicula1.agregarActor(unaPersona2.getId());
+        pelicula1.agregarActor(unaPersona3.getId());
+        
+        // Se inserta esa pelicula
+        ManejadorPeliculas instance = new ManejadorPeliculas();
+        instance.insertarPelicula(pelicula1);
+              
+        Comparable idActor = 3;
+        Comparable expResult = 1;
+        
+        short i = 0;
+        Comparable result = instance.buscaMultipleConActor("",i, 0.0F, "", idActor).cantElementos();
+        assertEquals(expResult, result);
+    }
+    
+     /**
+     * Test of buscaMultipleConActor method, of class ManejadorPeliculas.
+     */
+    @Test
+    public void testBuscaMultipleConActorNull() {
+        System.out.println("buscaMultipleConActor");
+        
+        //Se crea y agrega una pelicula
+        Comparable id1 = 1;
+        short fecha1 = 2013;
+        float ranking1 = 4.6F;
+        Pelicula pelicula1 = new Pelicula(id1, "Uno", fecha1, ranking1,"descripcion1", "accion");
+        
+        // Se crean 3 actores y se asocian a esa pelicula
+        Comparable idActor1 = 1;
+        String nombreActor1 = "Jhon";
+        String fechaNacimiento1 = "21/12/1990";
+        String lugarNacimiento1 = "Alaska";
+        String biografia1 = "bla bla bla";
+        Persona unaPersona1 = new Actor(idActor1,nombreActor1,fechaNacimiento1,lugarNacimiento1,biografia1);
+        
+        Comparable idActor2 = 2;
+        String nombreActor2 = "Maria";
+        String fechaNacimiento2 = "21/2/1990";
+        String lugarNacimiento2 = "Marruecos";
+        String biografia2 = "bla bla bla";
+        Persona unaPersona2 = new Actor(idActor2,nombreActor2,fechaNacimiento2,lugarNacimiento2,biografia2);
+        
+        Comparable idActor3 = 3;
+        String nombreActor3 = "Jose";
+        String fechaNacimiento3 = "1/12/1990";
+        String lugarNacimiento3 = "Brazil";
+        String biografia3 = "bla bla bla";
+        Persona unaPersona3 = new Actor(idActor3,nombreActor3,fechaNacimiento3,lugarNacimiento3,biografia3);
+        
+        pelicula1.agregarActor(unaPersona1.getId());
+        pelicula1.agregarActor(unaPersona2.getId());
+        pelicula1.agregarActor(unaPersona3.getId());
+        
+        // Se inserta esa pelicula
+        ManejadorPeliculas instance = new ManejadorPeliculas();
+        instance.insertarPelicula(pelicula1);
+              
+        Comparable idActor = 6;
+        Comparable expResult = 0;
+        
+        short i = 0;
+        Comparable result = instance.buscaMultipleConActor("",i, 0.0F, "", idActor).cantElementos();
+        assertEquals(expResult, result);
+    }
     
     
-    
-    /**
-     * Test of cantidadPeliculas method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testCantidadPeliculas() {
-        System.out.println("cantidadPeliculas");
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        int expResult = 0;
-        int result = instance.cantidadPeliculas();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of buscarPorActorLista method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testBuscarPorActorLista() {
-        System.out.println("buscarPorActorLista");
-        Comparable idActor = null;
-        Lista<Pelicula> lista = null;
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Lista<Pelicula> expResult = null;
-        Lista<Pelicula> result = instance.buscarPorActorLista(idActor, lista);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of buscarPorProductorLista method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testBuscarPorProductorLista() {
-        System.out.println("buscarPorProductorLista");
-        String nombreProductor = "";
-        Lista<Pelicula> lista = null;
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Lista<Pelicula> expResult = null;
-        Lista<Pelicula> result = instance.buscarPorProductorLista(nombreProductor, lista);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of buscarPorDirectorLista method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testBuscarPorDirectorLista() {
-        System.out.println("buscarPorDirectorLista");
-        String nombreDirector = "";
-        Lista<Pelicula> lista = null;
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Lista<Pelicula> expResult = null;
-        Lista<Pelicula> result = instance.buscarPorDirectorLista(nombreDirector, lista);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of peliculasQueContieneActor method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testPeliculasQueContieneActor() {
-        System.out.println("peliculasQueContieneActor");
-        Comparable unActor = null;
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Lista<Pelicula> expResult = null;
-        Lista<Pelicula> result = instance.peliculasQueContieneActor(unActor);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of peliculasQueContieneProductor method, of class
-     * ManejadorPeliculas.
-     */
-    @Test
-    public void testPeliculasQueContieneProductor() {
-        System.out.println("peliculasQueContieneProductor");
-        Comparable unProductor = null;
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Lista<Pelicula> expResult = null;
-        Lista<Pelicula> result = instance.peliculasQueContieneProductor(unProductor);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of peliculasQueContieneDirector method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testPeliculasQueContieneDirector() {
-        System.out.println("peliculasQueContieneDirector");
-        Comparable unDirector = null;
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Lista<Pelicula> expResult = null;
-        Lista<Pelicula> result = instance.peliculasQueContieneDirector(unDirector);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+        
 
 }

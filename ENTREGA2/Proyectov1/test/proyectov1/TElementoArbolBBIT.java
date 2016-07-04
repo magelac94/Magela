@@ -380,57 +380,6 @@ public class TElementoArbolBBIT {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of calcularCostoExito method, of class TElementoArbolBB.
-     */
-    @Test
-    public void testCalcularCostoExito() {
-        System.out.println("calcularCostoExito");
-        int[] frecExito = null;
-        int nivel = 0;
-        int[] contador = null;
-        TElementoArbolBB instance = null;
-        int expResult = 0;
-        int result = instance.calcularCostoExito(frecExito, nivel, contador);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
-    /**
-     * Test of calcularCostoNoExito method, of class TElementoArbolBB.
-     */
-    @Test
-    public void testCalcularCostoNoExito() {
-        System.out.println("calcularCostoNoExito");
-        int[] frecNoExito = null;
-        int nivel = 0;
-        int[] contador = null;
-        TElementoArbolBB instance = null;
-        int expResult = 0;
-        int result = instance.calcularCostoNoExito(frecNoExito, nivel, contador);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of calcularCosto method, of class TElementoArbolBB.
-     */
-    @Test
-    public void testCalcularCosto() {
-        System.out.println("calcularCosto");
-        int[] frecExito = null;
-        int[] frecNoExito = null;
-        int nivel = 0;
-        int[] contadorExito = null;
-        int[] contadorNoExito = null;
-        TElementoArbolBB instance = null;
-        int expResult = 0;
-        int result = instance.calcularCosto(frecExito, frecNoExito, nivel, contadorExito, contadorNoExito);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
     
 }

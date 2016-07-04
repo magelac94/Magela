@@ -13,12 +13,12 @@ import interfaces.*;
  */
 public class ManejadorPersonasAB implements IManejadorPersonasAB {
 
-    private TArbolBB arbolPersonas;
+    private TArbolBB<Persona> arbolPersonas;
 
     ManejadorPersonasAB() {
         arbolPersonas = new TArbolBB();
     }
-/*
+
     @Override
     public TArbolBB getArbol() {
         return arbolPersonas;
@@ -26,20 +26,35 @@ public class ManejadorPersonasAB implements IManejadorPersonasAB {
 
     @Override
     public void insertarPersona(Persona unaPersona) {
-        TElementoArbolBB nuevoNodo = new TElementoArbolBB<Persona>(unaPersona, unaPersona.getId());
-        this.arbolPersonas.insertar(nuevoNodo);
+        TElementoArbolBB nuevoNodo = new TElementoArbolBB<>(unaPersona, unaPersona.getId());
+        arbolPersonas.insertar(nuevoNodo);
     }
 
     @Override
     public Persona buscarPorCodigo(Comparable codigo) {
-        IElementoAB personaEncontrada = arbolPersonas.buscar(codigo);
+
+        IElementoAB<Persona> personaEncontrada = arbolPersonas.buscar(codigo);
         if (personaEncontrada == null) { //verifica que no sea null
             return null;
         }
-        Persona producto = (Persona) personaEncontrada.getDatos(); // arreglar
-        return producto;
+        return personaEncontrada.getDatos();
 
     }
+
+    @Override
+    public int cantidadPersonas() {
+        return this.arbolPersonas.obtenerTamanio();
+
+    }
+    
+    @Override
+    public void eliminar(Persona unaPersona){
+        arbolPersonas.eliminar(unaPersona.getId());
+    }
+
+    /*
+    @Override
+    
 
     @Override
     public Persona buscarPorNombre(String nombre) {

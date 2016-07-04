@@ -75,7 +75,11 @@ public interface IManejadorPeliculas {
     public Lista<Pelicula> buscarPorRankingLista(float rankingBuscar, Lista<Pelicula> listaDondeBuscar);
     public Lista<Pelicula> buscarPorFechaLista(short fechaBuscar) ;
     public Lista<Pelicula> buscarPorGeneroLista(String nombreGenero, Lista<Pelicula> listaDondeBuscar); 
+    
+    
     public Lista<Pelicula> buscaMultiple(String nombre,short fecha,float ranking,String genero);
+    public Lista<Pelicula> buscaMultipleConActor(String nombreBuscar,short fechaShort2,float rankingBuscar,String generoBuscar,Comparable idActor);
+
     
     public Lista<Pelicula> buscarPorActorLista(Comparable nombreGenero, Lista<Pelicula> listaDondeBuscar); 
     public Lista<Pelicula> buscarPorProductorLista(String nombreGenero, Lista<Pelicula> listaDondeBuscar); 

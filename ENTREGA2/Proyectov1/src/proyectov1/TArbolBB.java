@@ -12,12 +12,12 @@ import interfaces.*;
  *
  * @author Magela
  */
-public class TArbolBB implements IArbolBB {
+public class TArbolBB<T> implements IArbolBB<T> {
 
-    protected IElementoAB raiz;
+    protected IElementoAB<T> raiz;
 
     @Override
-    public boolean insertar(IElementoAB unElemento) {
+    public boolean insertar(IElementoAB<T> unElemento) {
         if (this.raiz == null) {
             this.raiz = unElemento;
             return true;
@@ -27,7 +27,7 @@ public class TArbolBB implements IArbolBB {
     }
 
     @Override
-    public boolean insertar(IElementoAB unElemento, Integer[] contador) {
+    public boolean insertar(IElementoAB<T> unElemento, Integer[] contador) {
         if (this.raiz == null) {
             this.raiz = unElemento;
             contador[0] = 1;
@@ -38,7 +38,7 @@ public class TArbolBB implements IArbolBB {
     }
 
     @Override
-    public IElementoAB buscar(Comparable unaEtiqueta, Integer[] contador) {
+    public IElementoAB<T> buscar(Comparable unaEtiqueta, Integer[] contador) {
         contador[0] = 0;
         if (raiz != null) {
             return raiz.buscar(unaEtiqueta, contador);
@@ -49,7 +49,7 @@ public class TArbolBB implements IArbolBB {
     }
     
     @Override
-    public IElementoAB buscar(Comparable unaEtiqueta) {
+    public IElementoAB<T> buscar(Comparable unaEtiqueta) {
     //    contador[0] = 0;
         if (raiz != null) {
             return raiz.buscar(unaEtiqueta);
@@ -132,7 +132,7 @@ public class TArbolBB implements IArbolBB {
     }
 
     @Override
-    public IElementoAB encontrarMinimo() {
+    public IElementoAB<T> encontrarMinimo() {
         if (raiz != null) {
             return raiz.encontrarMinimo();
         } else {
@@ -141,7 +141,7 @@ public class TArbolBB implements IArbolBB {
     }
 
     @Override
-    public IElementoAB encontrarMaximo() {
+    public IElementoAB<T> encontrarMaximo() {
         if (raiz != null) {
             return raiz.encontrarMaximo();
         } else {
@@ -150,7 +150,7 @@ public class TArbolBB implements IArbolBB {
     }
 
     @Override
-    public IElementoAB lexicograficamenteAnterior(Comparable unaClave) {
+    public IElementoAB<T> lexicograficamenteAnterior(Comparable unaClave) {
         IElementoAB anterior = null;
         if(raiz != null){
            raiz.lexicograficamenteAnterior(unaClave, anterior);
@@ -171,7 +171,7 @@ public class TArbolBB implements IArbolBB {
     /**
      * @return the raiz
      */
-    public IElementoAB getRaiz() {
+    public IElementoAB<T> getRaiz() {
         return raiz;
     }
 
@@ -197,21 +197,6 @@ public class TArbolBB implements IArbolBB {
         else {
             return 0;
         }
-    }
-
-    @Override
-    public int calcularCostoExito(int[] frecExito, int nivel, int[] contador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int calcularCostoNoExito(int[] frecNoExito) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int calcularCosto(int[] frecExito, int[] frecNoExito) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

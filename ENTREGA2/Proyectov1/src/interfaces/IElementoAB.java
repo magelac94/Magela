@@ -12,33 +12,33 @@ public interface IElementoAB<T> {
 	 * Obtiene el hijo izquierdo del nodo.
 	 * @return Hijo Izquierdo del nodo.
 	 */
-	public IElementoAB getHijoIzq();
+	public IElementoAB<T> getHijoIzq();
 	
 	/**
 	 * Obtiene el hijo derecho del nodo.
 	 * @return Hijo derecho del nodo.
 	 */
-	public IElementoAB getHijoDer();
+	public IElementoAB<T> getHijoDer();
 	
 	/**
 	 * Asigna el hijo izquierdo del nodo.
 	 * @return Elemento a ser asignado como hijo izquierdo.
 	 */
-	public void setHijoIzq(IElementoAB elemento);
+	public void setHijoIzq(IElementoAB<T> elemento);
 
 	/**
 	 * Asigna el hijo derecho del nodo.
 	 * @return Elemento a ser asignado como hijo derecho.
 	 */
-	public void setHijoDer(IElementoAB elemento);
+	public void setHijoDer(IElementoAB<T> elemento);
 
 	/**
 	 * Busca un elemento dentro del arbol con la etiqueta indicada.
 	 * @param unaEtiqueta del nodo a buscar
 	 * @return Elemento encontrado. En caso de no encontrarlo, retorna nulo.
 	 */
-	public IElementoAB buscar(Comparable unaEtiqueta, Integer[] contador);
-        public IElementoAB buscar(Comparable unaEtiqueta);
+	public IElementoAB<T> buscar(Comparable unaEtiqueta, Integer[] contador);
+        public IElementoAB<T> buscar(Comparable unaEtiqueta);
 	
 	/**
 	 * 
@@ -50,14 +50,14 @@ public interface IElementoAB<T> {
 	 * @return Exito de la operaci�n
 	 */
 	
-	public boolean insertar(IElementoAB elemento, Integer[] contador);
+	public boolean insertar(IElementoAB<T> elemento, Integer[] contador);
 	
 	/**
          * Elimina un elemento a partir de una etiqueta pasada por parametro
          * @param unaEtiqueta etiqueta del nodo a eliminar
          * @return 
          */
-        public IElementoAB eliminar(Comparable unaEtiqueta);
+        public IElementoAB<T> eliminar(Comparable unaEtiqueta);
                 
     
 	
@@ -66,7 +66,7 @@ public interface IElementoAB<T> {
 	 * @param elemento Elemento a insertar.
 	 * @return Exito de la operaci�n.
 	 */
-	public boolean insertar(IElementoAB elemento);
+	public boolean insertar(IElementoAB<T> elemento);
 	
 	/**
 	 * Imprime en preorden el arbol separado por guiones. 
@@ -121,13 +121,13 @@ public interface IElementoAB<T> {
 	 * Retorna el elemento cuya clave es la m�nima del subarbol.
 	 * @return Clave m�nima del subarbol.
 	 */
-	public IElementoAB encontrarMinimo();
+	public IElementoAB<T> encontrarMinimo();
 
 	/**
 	 * Retorna el elemento cuya clave es la maxima del subarbol.
 	 * @return Clave m�xima del subarbol.
 	 */
-	public IElementoAB encontrarMaximo();
+	public IElementoAB<T> encontrarMaximo();
 	
 	/**
 	 * Retorna el elemento inmediatamente anterior.
@@ -145,11 +145,8 @@ public interface IElementoAB<T> {
          * Quita el nodo 
          * @return Nodo sustituto al quitado
          */
-        public IElementoAB quitarElNodo();
+        public IElementoAB<T> quitarElNodo();
         
         public int sumarClavesNivel(int n);
-        public int calcularCostoExito(int[] frecExito,int nivel,int[] contador );
-        public int calcularCostoNoExito(int[] frecNoExito, int nivel, int[] contador);
-        public int calcularCosto(int[] frecExito,int[] frecNoExito,int nivel,int[] contadorExito,int[] contadorNoExito );
-        
+
 }

@@ -13,25 +13,29 @@ import interfaces.*;
  */
 public class Actor extends Persona {
     
-    int fechaNacimiento;
-    String lugarNacimiento;
-    String biografia;
+    private String fechaNacimiento;
+    private String lugarNacimiento;
+    private String biografia;
     
-    public Actor(Comparable idActor, String nombreActor, int fechaN, String lugarN, String biografia)
+    public Actor(Comparable idActor, String nombreActor, String fechaN, String lugarN, String biografia)
     {
         super(idActor,nombreActor);
         fechaNacimiento = fechaN;
         lugarNacimiento = lugarN;
-        biografia = biografia;
+        this.biografia = biografia;
         
     }
- /*   @Override
-    public Comparable getId(){
-        return this.idActor;
+    
+    public String getFechaNacimiento(){
+        return this.fechaNacimiento;   
     }
-    @Override     
-    public String getNombre(){
-        return this.nomActor;
+    
+    public String getLugarNacimiento(){
+        return this.lugarNacimiento;
     }
-    */
+    
+    public String getBiografia(){
+        return this.biografia;
+    }
+    
 }

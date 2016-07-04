@@ -38,8 +38,8 @@ public class AdaptadorInterfazManejadores implements IAdaptadorInterfazManejador
     
     public void cargarDatos() {
         obtenerPeliculas();
-        obtenerActores();
-        obtenerPeliculasActores();
+     //   obtenerActores();
+     //   obtenerPeliculasActores();
         //  obtenerPeliculasProductores(); Revisar
         //  obtenerPeliculasDirectores(); revisar
 
@@ -179,7 +179,7 @@ public class AdaptadorInterfazManejadores implements IAdaptadorInterfazManejador
         for (int i = 0; i < archivoActor.length; i++) {
             try {
                 String[] columnas = archivoActor[i].split("\\|");
-                Actor objActor = new Actor(Integer.parseInt(columnas[0]), columnas[1],Integer.parseInt(columnas[2]),columnas[3],columnas[4]);
+                Actor objActor = new Actor(Integer.parseInt(columnas[0]), columnas[1],columnas[2],columnas[3],columnas[4]);
                 manejadorActores.insertarPersona(objActor);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "¡Error en Formato de Archivo!\n Actor No Ingresado: " + archivoActor[i]);

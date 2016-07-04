@@ -9,7 +9,7 @@ import interfaces.IElementoAB;
 
 /**
  *
- * @author Facundo
+ * @author Magela
  */
 public class TElementoArbolBB<T> implements IElementoAB {
 
@@ -29,12 +29,12 @@ public class TElementoArbolBB<T> implements IElementoAB {
     }
 
     @Override
-    public IElementoAB getHijoIzq() {
+    public IElementoAB<T> getHijoIzq() {
         return this.hijoIzq;
     }
 
     @Override
-    public IElementoAB getHijoDer() {
+    public IElementoAB<T> getHijoDer() {
         return this.hijoDer;
     }
 
@@ -49,7 +49,7 @@ public class TElementoArbolBB<T> implements IElementoAB {
     }
 
     @Override
-    public IElementoAB buscar(Comparable unaEtiqueta, Integer[] contador) {
+    public IElementoAB<T> buscar(Comparable unaEtiqueta, Integer[] contador) {
         System.out.println("BUSCAMOS ELEMENTO: " + unaEtiqueta + " Valor de Contador: " + contador[0]);
         contador[0]++;
         if (unaEtiqueta.compareTo(etiqueta) == 0) {
@@ -68,7 +68,7 @@ public class TElementoArbolBB<T> implements IElementoAB {
     }
     
     @Override
-    public IElementoAB buscar(Comparable unaEtiqueta) {
+    public IElementoAB<T> buscar(Comparable unaEtiqueta) {
      
         //contador[0]++;
         if (unaEtiqueta.compareTo(etiqueta) == 0) {
@@ -284,10 +284,10 @@ public class TElementoArbolBB<T> implements IElementoAB {
     }
 
     @Override
-    public Object getDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public T getDatos() {
+        return this.datos;
     }
-
+    
     @Override
     public IElementoAB eliminar(Comparable unaEtiqueta) {
 
@@ -354,20 +354,6 @@ public class TElementoArbolBB<T> implements IElementoAB {
         
     }
 
-    @Override
-    public int calcularCostoExito(int[] frecExito, int nivel, int[] contador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int calcularCostoNoExito(int[] frecNoExito, int nivel, int[] contador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int calcularCosto(int[] frecExito, int[] frecNoExito, int nivel, int[] contadorExito, int[] contadorNoExito) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     
 }

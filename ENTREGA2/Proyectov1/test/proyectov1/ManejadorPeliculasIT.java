@@ -38,20 +38,6 @@ public class ManejadorPeliculasIT {
     }
 
     /**
-     * Test of getLista method, of class ManejadorPeliculas.
-     */
-    @Test
-    public void testGetLista() {
-        System.out.println("getLista");
-        ManejadorPeliculas instance = new ManejadorPeliculas();
-        Lista<Pelicula> expResult = null;
-        Lista<Pelicula> result = instance.getLista();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of insertarPelicula method, of class ManejadorPeliculas.
      */
     @Test
@@ -341,7 +327,7 @@ public class ManejadorPeliculasIT {
      * Test of buscaMultiple method, of class ManejadorPeliculas.
      */
     @Test
-    public void testBuscaMultiple() {
+    public void testBuscaMultipleValida() {
         System.out.println("buscaMultiple");
 
         // CREO TRES PELICULAS Y AGREGO
@@ -357,9 +343,9 @@ public class ManejadorPeliculasIT {
         short fecha3 = 2015;
         float ranking3 = 5.0F;
 
-        Pelicula pelicula1 = new Pelicula(id1, "Uno", fecha1, ranking1, "accion", "descripcion1");
-        Pelicula pelicula2 = new Pelicula(id2, "Dos", fecha2, ranking2, "drama", "descripcion2");
-        Pelicula pelicula3 = new Pelicula(id3, "Tres", fecha3, ranking3, "comedia", "descripcion3");
+        Pelicula pelicula1 = new Pelicula(id1, "Uno", fecha1, ranking1,"descripcion1", "accion");
+        Pelicula pelicula2 = new Pelicula(id2, "Dos", fecha2, ranking2,"descripcion2", "drama" );
+        Pelicula pelicula3 = new Pelicula(id3, "Tres", fecha3, ranking3, "descripcion3", "comedia");
 
         ManejadorPeliculas instance = new ManejadorPeliculas();
         instance.insertarPelicula(pelicula1);
@@ -374,7 +360,7 @@ public class ManejadorPeliculasIT {
         // BUSQUEDA DE PELICULAS 
         String nombreBuscar = "Uno";
         short fechaShort2 = 2013;
-        float rankingBuscar = 4.6F;
+        float rankingBuscar = 0.0F;
         String generoBuscar = "accion";
 
         //   Lista<Pelicula> expResult = resultadoEsperado;
@@ -387,7 +373,96 @@ public class ManejadorPeliculasIT {
         assertEquals(expResult, result);
 
     }
+    
+     /**
+     * Test of buscaMultiple method, of class ManejadorPeliculas.
+     */
+    @Test
+    public void testBuscaMultipleVacia() {
+        System.out.println("buscaMultiple");
 
+        // CREO TRES PELICULAS Y AGREGO
+        Comparable id1 = 1;
+        short fecha1 = 2013;
+        float ranking1 = 4.6F;
+
+        Comparable id2 = 2;
+        short fecha2 = 2014;
+        float ranking2 = 4.7F;
+
+        Comparable id3 = 3;
+        short fecha3 = 2015;
+        float ranking3 = 5.0F;
+
+        Pelicula pelicula1 = new Pelicula(id1, "Uno", fecha1, ranking1,"descripcion1", "accion");
+        Pelicula pelicula2 = new Pelicula(id2, "Dos", fecha2, ranking2,"descripcion2", "drama" );
+        Pelicula pelicula3 = new Pelicula(id3, "Tres", fecha3, ranking3, "descripcion3", "comedia");
+
+        ManejadorPeliculas instance = new ManejadorPeliculas();
+        instance.insertarPelicula(pelicula1);
+        instance.insertarPelicula(pelicula2);
+        instance.insertarPelicula(pelicula3);
+
+        // BUSQUEDA DE PELICULAS 
+        String nombreBuscar = "Uno";
+        short fechaShort2 = 2013;
+        float rankingBuscar = 0.0F;
+        String generoBuscar = "drama";
+
+        Comparable result = instance.buscaMultiple(nombreBuscar, fechaShort2, rankingBuscar, generoBuscar).cantElementos();
+        
+       assertEquals(0, result);
+
+    }
+
+    /**
+     * Test of buscaMultiple method, of class ManejadorPeliculas.
+     */
+    @Test
+    public void testBuscaMultipleDoble() {
+        System.out.println("buscaMultiple Doble");
+
+        // CREO TRES PELICULAS Y AGREGO
+        Comparable id1 = 1;
+        short fecha1 = 2013;
+        float ranking1 = 4.6F;
+
+        Comparable id2 = 2;
+        short fecha2 = 2014;
+        float ranking2 = 4.7F;
+
+        Comparable id3 = 3;
+        short fecha3 = 2015;
+        float ranking3 = 5.0F;
+
+        Pelicula pelicula1 = new Pelicula(id1, "Uno", fecha1, ranking1,"descripcion1", "accion");
+        Pelicula pelicula2 = new Pelicula(id2, "Dos", fecha2, ranking2,"descripcion2", "accion" );
+        Pelicula pelicula3 = new Pelicula(id3, "Tres", fecha3, ranking3, "descripcion3", "comedia");
+
+        ManejadorPeliculas instance = new ManejadorPeliculas();
+        instance.insertarPelicula(pelicula1);
+        instance.insertarPelicula(pelicula2);
+        instance.insertarPelicula(pelicula3);
+
+        // BUSQUEDA DE PELICULAS 
+        String nombreBuscar = "";
+        short fechaShort2 = 0;
+        float rankingBuscar = 0.0F;
+        String generoBuscar = "accion";
+
+       Comparable expResult = 2;
+
+      Comparable result = instance.buscaMultiple(nombreBuscar, fechaShort2, rankingBuscar, generoBuscar).cantElementos();
+        
+        assertEquals(expResult, result);
+
+    }
+
+    
+   
+    
+    
+    
     /**
      * Test of cantidadPeliculas method, of class ManejadorPeliculas.
      */

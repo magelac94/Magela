@@ -337,53 +337,5 @@ public class TArbolBBIT {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of calcularCostoExito method, of class TArbolBB.
-     */
-    @Test
-    public void testCalcularCostoExito() {
-        System.out.println("calcularCostoExito");
-        int[] frecExito = null;
-        int nivel = 0;
-        int[] contador = null;
-        TArbolBB instance = new TArbolBB();
-        int expResult = 0;
-        int result = instance.calcularCostoExito(frecExito, nivel, contador);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of calcularCostoNoExito method, of class TArbolBB.
-     */
-    @Test
-    public void testCalcularCostoNoExito() {
-        System.out.println("calcularCostoNoExito");
-        int[] frecNoExito = null;
-        TArbolBB instance = new TArbolBB();
-        int expResult = 0;
-        int result = instance.calcularCostoNoExito(frecNoExito);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of calcularCosto method, of class TArbolBB.
-     */
-    @Test
-    public void testCalcularCosto() {
-        System.out.println("calcularCosto");
-        int[] frecExito = null;
-        int[] frecNoExito = null;
-        TArbolBB instance = new TArbolBB();
-        int expResult = 0;
-        int result = instance.calcularCosto(frecExito, frecNoExito);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
     
 }

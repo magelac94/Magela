@@ -13,8 +13,8 @@ import interfaces.IPersona;
  */
 public class Persona implements IPersona {
     
-    final Comparable idPersona ;
-    String nomPersona;
+    protected final Comparable idPersona ;
+    protected String nomPersona;
     
     public Persona(Comparable idPersona, String nomPersona)
     {

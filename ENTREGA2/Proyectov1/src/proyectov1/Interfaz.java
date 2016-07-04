@@ -34,7 +34,7 @@ public class Interfaz extends javax.swing.JFrame {
         //    cargarEstrenos();
         initComponents();
         aedMovieAdapter.cargarDatos();
-        cargarEstrenos();
+       // cargarEstrenos();
     }
 
     /**

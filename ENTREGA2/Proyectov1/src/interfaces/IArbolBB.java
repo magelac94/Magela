@@ -10,7 +10,7 @@ public interface IArbolBB<T> {
 	 */
 	
 	
-	public boolean insertar(IElementoAB unElemento);
+	public boolean insertar(IElementoAB<T> unElemento);
 	
 	/**
 	 * Inserta un elemento en el arbol. En caso de ya existir un elemento
@@ -26,7 +26,7 @@ public interface IArbolBB<T> {
 	 * @param contador Vector de 1 solo elemento conteniendo el contador de llamadas
 	 * @return Exito de la operaci�n
 	 */
-	public boolean insertar(IElementoAB unElemento, Integer[] contador);
+	public boolean insertar(IElementoAB<T> unElemento, Integer[] contador);
 	
 	/**
 	 * Busca un elemento dentro del �rbol.
@@ -42,8 +42,8 @@ public interface IArbolBB<T> {
 	 * @param Vector de 1 solo elemento conteniendo el contador de llamadas.
 	 * @return Elemento encontrado. En caso de no encontrarlo, retorna nulo.
 	 */
-	public IElementoAB buscar(Comparable unaEtiqueta, Integer[] contador);
-        public IElementoAB buscar(Comparable unaEtiqueta);
+	public IElementoAB<T> buscar(Comparable unaEtiqueta, Integer[] contador);
+        public IElementoAB<T> buscar(Comparable unaEtiqueta);
 	
 	/**
 	 * Imprime en PreOrden los elementos del �rbol, separados por guiones.
@@ -97,20 +97,20 @@ public interface IArbolBB<T> {
 	 * Retorna el elemento con la menor clave del �rbol.
 	 * @return Menor clave del arbol.
 	 */
-	public IElementoAB encontrarMinimo();
+	public IElementoAB<T> encontrarMinimo();
 	
 	/**
 	 * Retorna el elemento con la mayor clave del �rbol.
 	 * @return Mayor clave del arbol.
 	 */
-	public IElementoAB encontrarMaximo();
+	public IElementoAB<T> encontrarMaximo();
 	
 	/**
 	 * Retorna el elemento cuya clave es la inmediata anterior a una clave dada (pasada por par�metro)
 	 * @param unaClave 
 	 * @return
 	 */
-	public IElementoAB lexicograficamenteAnterior (Comparable unaClave);
+	public IElementoAB<T> lexicograficamenteAnterior (Comparable unaClave);
 
 	/**
 	 * Retorna la cantidad de nodos de un nivel dado (por par�metro)
@@ -132,8 +132,6 @@ public interface IArbolBB<T> {
         public void eliminar(Comparable unaEtiqueta);
         
         public int sumarClavesNivel(int n);
-        public int calcularCostoExito(int[] frecExito, int nivel, int[] contador);
-        public int calcularCostoNoExito(int[] frecNoExito);
-        public int calcularCosto(int[] frecExito, int[] frecNoExito);
+      
         
 }
